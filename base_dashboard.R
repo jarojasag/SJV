@@ -41,7 +41,7 @@ feedstock_plot <- function(feedstock_use_instance){
 
 # Base Buildouts ----------------------------------------------------------
 
-commodity__use <- read_csv("data/commodity_to_use.csv")
+commodity_use <- read_csv("data/commodity_to_use.csv")
 feedstock_commodity <- read_csv("data/feedstock_to_commodity.csv")
 
 # Reference Commodities/Feedstocks ----------------------------------------
@@ -109,9 +109,10 @@ land_use <- feedstock_use(feedstock_commodity, land_ref_commodities,
   arrange(`Uncertainty Range Category`, `Variable Subcategory`, Feedstock, Commodity, year) %>% 
   group_by(`Uncertainty Range Category`, `Variable Subcategory`, Feedstock, Commodity) %>% 
   mutate(diff = Installation - dplyr::lag(Installation),
-         `Conversion Value` = case_when(diff > 0 ~ diff * Value,
+         `Conversion Value` = case_when(diff > 0 ~ Installation * Value,
                                         is.na(diff) ~ Installation * Value,  
-                                        .default = 0)) %>% 
+                                        .default = lag(Installation) * lag(Value))) %>% 
+  select(-diff) %>% 
   ungroup()
 
 # Plot
@@ -141,7 +142,8 @@ jobs_use <- feedstock_use(feedstock_commodity, jobs_ref_commodities,
   mutate(diff = Installation - dplyr::lag(Installation),
          `Conversion Value` = case_when(diff > 0 ~ diff *  Value,
                                         is.na(diff) ~ Installation * Value,  
-                                        .default = 0)) %>% 
+                                        .default = 0))  %>% 
+  select(-diff) %>% 
   ungroup()
 
 # Plot
