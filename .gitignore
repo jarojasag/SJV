@@ -48,5 +48,6 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# Excel
-*.xlsx?
+# MS Ofdice
+.xlsx?
+.docx?
