@@ -48,7 +48,7 @@ feedstock_commodity <- read_csv("data/feedstock_to_commodity.csv")
 
 water_ref_commodities <- c("Hydrogen")
 water_ref_feedstock <- c("Natural Gas", "Solar")
-  
+
 land_ref_commodities <- c("Electricity", "Hydrogen")
 land_ref_feedstock <- c("Solar", "Wind")
 
@@ -92,7 +92,7 @@ water_use <- feedstock_use(feedstock_commodity, water_ref_commodities,
 # Plot
 
 feedstock_plot(water_use) +
-    facet_wrap( ~ Feedstock + `Variable Subcategory`, scales = "free")
+  facet_wrap( ~ Feedstock + `Variable Subcategory`, scales = "free")
 
 ggsave("plots/water.png")
 
@@ -136,7 +136,7 @@ land_use %>% write_csv("output/land_use_base.csv")
 # Unit: Jobs by year per feedstock & commodity 
 
 jobs_use <- feedstock_use(feedstock_commodity, jobs_ref_commodities, 
-                         jobs_ref_feedstock, jobs_use_coef) %>% 
+                          jobs_ref_feedstock, jobs_use_coef) %>% 
   arrange(Feedstock, Commodity, `Variable Subcategory`, year) %>% 
   group_by(Feedstock, Commodity, `Variable Subcategory`) %>% 
   mutate(diff = Installation - dplyr::lag(Installation),
