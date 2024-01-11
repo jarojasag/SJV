@@ -49,5 +49,5 @@ po/*~
 rsconnect/
 
 # MS Ofdice
-.xlsx?
-.docx?
+.xlsx
+.docx
