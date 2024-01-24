@@ -76,6 +76,7 @@ ui <- fluidPage(
                    column(8, plotOutput("CommPlot_hydrogen")),
                    column(4, 
                           h3("Portfolio Summary"),
+                          h5("Your portfolio procedures are:"),
                           h5(htmlOutput("portfolioSummary_hydrogen"))
                    )
                  )
@@ -95,6 +96,7 @@ ui <- fluidPage(
                    column(8, plotOutput("CommPlot_biomethane")),
                    column(4, 
                           h3("Portfolio Summary"),
+                          h5("Your portfolio procedures are:"),
                           h5(htmlOutput("portfolioSummary_biomethane"))
                    )
                  )
@@ -116,6 +118,7 @@ ui <- fluidPage(
                    column(8, plotOutput("CommPlot_saf")),
                    column(4, 
                           h3("Portfolio Summary"),
+                          h5("Your portfolio procedures are:"),
                           h5(htmlOutput("portfolioSummary_saf"))
                    )
                  )
