@@ -132,7 +132,8 @@ ui <- fluidPage(
                               actionButton("info_natural_gas_hydrogen", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
                           )
                    )
-                 )                
+                 ),
+                 actionButton("resetValues_hydrogen", "Reset to Default (Hydrogen)")
                ),
                mainPanel(
                  fluidRow(
