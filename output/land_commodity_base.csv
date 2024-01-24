@@ -1,0 +1,379 @@
+Feedstock,Commodity,Commodity Unit,Unit Code,year,Installation,Variable Category,Variable Subcategory,Uncertainty Range Category,Variable Unit,Value,Conversion Value
+Solar,Electricity,Megawatts,MW,2025,1210.909091,Land,Land Consumed,High,acres,4.2,5085.818182200001
+Solar,Electricity,Megawatts,MW,2026,2421.818182,Land,Land Consumed,High,acres,4.2,10171.636364400001
+Solar,Electricity,Megawatts,MW,2027,3632.727273,Land,Land Consumed,High,acres,4.2,15257.4545466
+Solar,Electricity,Megawatts,MW,2028,4843.636364,Land,Land Consumed,High,acres,4.2,20343.272728800002
+Solar,Electricity,Megawatts,MW,2029,6054.545455,Land,Land Consumed,High,acres,4.2,25429.090911000003
+Solar,Electricity,Megawatts,MW,2030,7265.454545,Land,Land Consumed,High,acres,4.2,30514.909089
+Solar,Electricity,Megawatts,MW,2031,8476.363636,Land,Land Consumed,High,acres,4.2,35600.727271200005
+Solar,Electricity,Megawatts,MW,2032,9687.272727,Land,Land Consumed,High,acres,4.2,40686.5454534
+Solar,Electricity,Megawatts,MW,2033,10898.18182,Land,Land Consumed,High,acres,4.2,45772.363644000005
+Solar,Electricity,Megawatts,MW,2034,12109.09091,Land,Land Consumed,High,acres,4.2,50858.181822000006
+Solar,Electricity,Megawatts,MW,2035,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2036,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2037,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2038,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2039,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2040,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2041,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2042,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2043,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2044,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Electricity,Megawatts,MW,2045,13320,Land,Land Consumed,High,acres,4.2,55944
+Solar,Hydrogen,Metric Tons,MT,2025,0,Land,Land Consumed,High,acres,0.08199,0
+Solar,Hydrogen,Metric Tons,MT,2026,0,Land,Land Consumed,High,acres,0.08199,0
+Solar,Hydrogen,Metric Tons,MT,2027,0,Land,Land Consumed,High,acres,0.08199,0
+Solar,Hydrogen,Metric Tons,MT,2028,0,Land,Land Consumed,High,acres,0.08199,0
+Solar,Hydrogen,Metric Tons,MT,2029,0,Land,Land Consumed,High,acres,0.08199,0
+Solar,Hydrogen,Metric Tons,MT,2030,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2031,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2032,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2033,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2034,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2035,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2036,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2037,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2038,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2039,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2040,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2041,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2042,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2043,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2044,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Solar,Hydrogen,Metric Tons,MT,2045,96000,Land,Land Consumed,High,acres,0.08199,7871.039999999999
+Wind,Electricity,Megawatts,MW,2025,24.90909091,Land,Land Consumed,High,acres,4.2,104.618181822
+Wind,Electricity,Megawatts,MW,2026,49.81818182,Land,Land Consumed,High,acres,4.2,209.236363644
+Wind,Electricity,Megawatts,MW,2027,74.72727273,Land,Land Consumed,High,acres,4.2,313.854545466
+Wind,Electricity,Megawatts,MW,2028,99.63636364,Land,Land Consumed,High,acres,4.2,418.472727288
+Wind,Electricity,Megawatts,MW,2029,124.5454545,Land,Land Consumed,High,acres,4.2,523.0909089
+Wind,Electricity,Megawatts,MW,2030,149.4545455,Land,Land Consumed,High,acres,4.2,627.7090911
+Wind,Electricity,Megawatts,MW,2031,174.3636364,Land,Land Consumed,High,acres,4.2,732.32727288
+Wind,Electricity,Megawatts,MW,2032,199.2727273,Land,Land Consumed,High,acres,4.2,836.9454546600001
+Wind,Electricity,Megawatts,MW,2033,224.1818182,Land,Land Consumed,High,acres,4.2,941.5636364400001
+Wind,Electricity,Megawatts,MW,2034,249.0909091,Land,Land Consumed,High,acres,4.2,1046.18181822
+Wind,Electricity,Megawatts,MW,2035,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2036,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2037,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2038,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2039,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2040,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2041,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2042,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2043,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2044,274,Land,Land Consumed,High,acres,4.2,1150.8
+Wind,Electricity,Megawatts,MW,2045,274,Land,Land Consumed,High,acres,4.2,1150.8
+Solar,Electricity,Megawatts,MW,2025,1210.909091,Land,Land Impacted,High,acres,5.25,6357.27272775
+Solar,Electricity,Megawatts,MW,2026,2421.818182,Land,Land Impacted,High,acres,5.25,12714.5454555
+Solar,Electricity,Megawatts,MW,2027,3632.727273,Land,Land Impacted,High,acres,5.25,19071.81818325
+Solar,Electricity,Megawatts,MW,2028,4843.636364,Land,Land Impacted,High,acres,5.25,25429.090911
+Solar,Electricity,Megawatts,MW,2029,6054.545455,Land,Land Impacted,High,acres,5.25,31786.36363875
+Solar,Electricity,Megawatts,MW,2030,7265.454545,Land,Land Impacted,High,acres,5.25,38143.63636125
+Solar,Electricity,Megawatts,MW,2031,8476.363636,Land,Land Impacted,High,acres,5.25,44500.909089
+Solar,Electricity,Megawatts,MW,2032,9687.272727,Land,Land Impacted,High,acres,5.25,50858.181816749995
+Solar,Electricity,Megawatts,MW,2033,10898.18182,Land,Land Impacted,High,acres,5.25,57215.454555
+Solar,Electricity,Megawatts,MW,2034,12109.09091,Land,Land Impacted,High,acres,5.25,63572.7272775
+Solar,Electricity,Megawatts,MW,2035,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2036,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2037,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2038,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2039,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2040,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2041,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2042,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2043,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2044,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Electricity,Megawatts,MW,2045,13320,Land,Land Impacted,High,acres,5.25,69930
+Solar,Hydrogen,Metric Tons,MT,2025,0,Land,Land Impacted,High,acres,0.10248749999999998,0
+Solar,Hydrogen,Metric Tons,MT,2026,0,Land,Land Impacted,High,acres,0.10248749999999998,0
+Solar,Hydrogen,Metric Tons,MT,2027,0,Land,Land Impacted,High,acres,0.10248749999999998,0
+Solar,Hydrogen,Metric Tons,MT,2028,0,Land,Land Impacted,High,acres,0.10248749999999998,0
+Solar,Hydrogen,Metric Tons,MT,2029,0,Land,Land Impacted,High,acres,0.10248749999999998,0
+Solar,Hydrogen,Metric Tons,MT,2030,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2031,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2032,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2033,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2034,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2035,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2036,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2037,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2038,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2039,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2040,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2041,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2042,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2043,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2044,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Solar,Hydrogen,Metric Tons,MT,2045,96000,Land,Land Impacted,High,acres,0.10248749999999998,9838.799999999997
+Wind,Electricity,Megawatts,MW,2025,24.90909091,Land,Land Impacted,High,acres,123,3063.81818193
+Wind,Electricity,Megawatts,MW,2026,49.81818182,Land,Land Impacted,High,acres,123,6127.63636386
+Wind,Electricity,Megawatts,MW,2027,74.72727273,Land,Land Impacted,High,acres,123,9191.45454579
+Wind,Electricity,Megawatts,MW,2028,99.63636364,Land,Land Impacted,High,acres,123,12255.27272772
+Wind,Electricity,Megawatts,MW,2029,124.5454545,Land,Land Impacted,High,acres,123,15319.0909035
+Wind,Electricity,Megawatts,MW,2030,149.4545455,Land,Land Impacted,High,acres,123,18382.9090965
+Wind,Electricity,Megawatts,MW,2031,174.3636364,Land,Land Impacted,High,acres,123,21446.7272772
+Wind,Electricity,Megawatts,MW,2032,199.2727273,Land,Land Impacted,High,acres,123,24510.545457900003
+Wind,Electricity,Megawatts,MW,2033,224.1818182,Land,Land Impacted,High,acres,123,27574.3636386
+Wind,Electricity,Megawatts,MW,2034,249.0909091,Land,Land Impacted,High,acres,123,30638.1818193
+Wind,Electricity,Megawatts,MW,2035,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2036,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2037,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2038,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2039,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2040,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2041,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2042,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2043,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2044,274,Land,Land Impacted,High,acres,123,33702
+Wind,Electricity,Megawatts,MW,2045,274,Land,Land Impacted,High,acres,123,33702
+Solar,Electricity,Megawatts,MW,2025,1210.909091,Land,Land Consumed,Low,acres,2.8,3390.5454548
+Solar,Electricity,Megawatts,MW,2026,2421.818182,Land,Land Consumed,Low,acres,2.8,6781.0909096
+Solar,Electricity,Megawatts,MW,2027,3632.727273,Land,Land Consumed,Low,acres,2.8,10171.6363644
+Solar,Electricity,Megawatts,MW,2028,4843.636364,Land,Land Consumed,Low,acres,2.8,13562.1818192
+Solar,Electricity,Megawatts,MW,2029,6054.545455,Land,Land Consumed,Low,acres,2.8,16952.727274
+Solar,Electricity,Megawatts,MW,2030,7265.454545,Land,Land Consumed,Low,acres,2.8,20343.272726
+Solar,Electricity,Megawatts,MW,2031,8476.363636,Land,Land Consumed,Low,acres,2.8,23733.818180799997
+Solar,Electricity,Megawatts,MW,2032,9687.272727,Land,Land Consumed,Low,acres,2.8,27124.3636356
+Solar,Electricity,Megawatts,MW,2033,10898.18182,Land,Land Consumed,Low,acres,2.8,30514.909095999996
+Solar,Electricity,Megawatts,MW,2034,12109.09091,Land,Land Consumed,Low,acres,2.8,33905.454548
+Solar,Electricity,Megawatts,MW,2035,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2036,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2037,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2038,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2039,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2040,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2041,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2042,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2043,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2044,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Electricity,Megawatts,MW,2045,13320,Land,Land Consumed,Low,acres,2.8,37296
+Solar,Hydrogen,Metric Tons,MT,2025,0,Land,Land Consumed,Low,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2026,0,Land,Land Consumed,Low,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2027,0,Land,Land Consumed,Low,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2028,0,Land,Land Consumed,Low,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2029,0,Land,Land Consumed,Low,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2030,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2031,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2032,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2033,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2034,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2035,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2036,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2037,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2038,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2039,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2040,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2041,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2042,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2043,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2044,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2045,96000,Land,Land Consumed,Low,acres,0.0683,6556.8
+Wind,Electricity,Megawatts,MW,2025,24.90909091,Land,Land Consumed,Low,acres,0.8,19.927272728000002
+Wind,Electricity,Megawatts,MW,2026,49.81818182,Land,Land Consumed,Low,acres,0.8,39.854545456000004
+Wind,Electricity,Megawatts,MW,2027,74.72727273,Land,Land Consumed,Low,acres,0.8,59.781818184
+Wind,Electricity,Megawatts,MW,2028,99.63636364,Land,Land Consumed,Low,acres,0.8,79.70909091200001
+Wind,Electricity,Megawatts,MW,2029,124.5454545,Land,Land Consumed,Low,acres,0.8,99.63636360000001
+Wind,Electricity,Megawatts,MW,2030,149.4545455,Land,Land Consumed,Low,acres,0.8,119.56363640000001
+Wind,Electricity,Megawatts,MW,2031,174.3636364,Land,Land Consumed,Low,acres,0.8,139.49090912
+Wind,Electricity,Megawatts,MW,2032,199.2727273,Land,Land Consumed,Low,acres,0.8,159.41818184000002
+Wind,Electricity,Megawatts,MW,2033,224.1818182,Land,Land Consumed,Low,acres,0.8,179.34545456
+Wind,Electricity,Megawatts,MW,2034,249.0909091,Land,Land Consumed,Low,acres,0.8,199.27272728000003
+Wind,Electricity,Megawatts,MW,2035,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2036,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2037,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2038,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2039,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2040,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2041,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2042,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2043,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2044,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Wind,Electricity,Megawatts,MW,2045,274,Land,Land Consumed,Low,acres,0.8,219.20000000000002
+Solar,Electricity,Megawatts,MW,2025,1210.909091,Land,Land Impacted,Low,acres,3.4999999999999996,4238.181818499999
+Solar,Electricity,Megawatts,MW,2026,2421.818182,Land,Land Impacted,Low,acres,3.4999999999999996,8476.363636999999
+Solar,Electricity,Megawatts,MW,2027,3632.727273,Land,Land Impacted,Low,acres,3.4999999999999996,12714.545455499998
+Solar,Electricity,Megawatts,MW,2028,4843.636364,Land,Land Impacted,Low,acres,3.4999999999999996,16952.727273999997
+Solar,Electricity,Megawatts,MW,2029,6054.545455,Land,Land Impacted,Low,acres,3.4999999999999996,21190.9090925
+Solar,Electricity,Megawatts,MW,2030,7265.454545,Land,Land Impacted,Low,acres,3.4999999999999996,25429.090907499995
+Solar,Electricity,Megawatts,MW,2031,8476.363636,Land,Land Impacted,Low,acres,3.4999999999999996,29667.272725999996
+Solar,Electricity,Megawatts,MW,2032,9687.272727,Land,Land Impacted,Low,acres,3.4999999999999996,33905.4545445
+Solar,Electricity,Megawatts,MW,2033,10898.18182,Land,Land Impacted,Low,acres,3.4999999999999996,38143.63636999999
+Solar,Electricity,Megawatts,MW,2034,12109.09091,Land,Land Impacted,Low,acres,3.4999999999999996,42381.818185
+Solar,Electricity,Megawatts,MW,2035,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2036,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2037,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2038,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2039,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2040,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2041,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2042,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2043,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2044,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Electricity,Megawatts,MW,2045,13320,Land,Land Impacted,Low,acres,3.4999999999999996,46619.99999999999
+Solar,Hydrogen,Metric Tons,MT,2025,0,Land,Land Impacted,Low,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2026,0,Land,Land Impacted,Low,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2027,0,Land,Land Impacted,Low,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2028,0,Land,Land Impacted,Low,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2029,0,Land,Land Impacted,Low,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2030,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2031,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2032,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2033,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2034,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2035,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2036,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2037,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2038,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2039,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2040,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2041,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2042,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2043,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2044,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2045,96000,Land,Land Impacted,Low,acres,0.08537499999999999,8196
+Wind,Electricity,Megawatts,MW,2025,24.90909091,Land,Land Impacted,Low,acres,24,597.81818184
+Wind,Electricity,Megawatts,MW,2026,49.81818182,Land,Land Impacted,Low,acres,24,1195.63636368
+Wind,Electricity,Megawatts,MW,2027,74.72727273,Land,Land Impacted,Low,acres,24,1793.45454552
+Wind,Electricity,Megawatts,MW,2028,99.63636364,Land,Land Impacted,Low,acres,24,2391.27272736
+Wind,Electricity,Megawatts,MW,2029,124.5454545,Land,Land Impacted,Low,acres,24,2989.090908
+Wind,Electricity,Megawatts,MW,2030,149.4545455,Land,Land Impacted,Low,acres,24,3586.909092
+Wind,Electricity,Megawatts,MW,2031,174.3636364,Land,Land Impacted,Low,acres,24,4184.7272735999995
+Wind,Electricity,Megawatts,MW,2032,199.2727273,Land,Land Impacted,Low,acres,24,4782.5454552
+Wind,Electricity,Megawatts,MW,2033,224.1818182,Land,Land Impacted,Low,acres,24,5380.363636800001
+Wind,Electricity,Megawatts,MW,2034,249.0909091,Land,Land Impacted,Low,acres,24,5978.1818184
+Wind,Electricity,Megawatts,MW,2035,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2036,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2037,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2038,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2039,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2040,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2041,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2042,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2043,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2044,274,Land,Land Impacted,Low,acres,24,6576
+Wind,Electricity,Megawatts,MW,2045,274,Land,Land Impacted,Low,acres,24,6576
+Solar,Electricity,Megawatts,MW,2025,1210.909091,Land,Land Consumed,Nominal,acres,3.5,4238.1818185
+Solar,Electricity,Megawatts,MW,2026,2421.818182,Land,Land Consumed,Nominal,acres,3.5,8476.363637
+Solar,Electricity,Megawatts,MW,2027,3632.727273,Land,Land Consumed,Nominal,acres,3.5,12714.5454555
+Solar,Electricity,Megawatts,MW,2028,4843.636364,Land,Land Consumed,Nominal,acres,3.5,16952.727274
+Solar,Electricity,Megawatts,MW,2029,6054.545455,Land,Land Consumed,Nominal,acres,3.5,21190.909092500002
+Solar,Electricity,Megawatts,MW,2030,7265.454545,Land,Land Consumed,Nominal,acres,3.5,25429.090907499998
+Solar,Electricity,Megawatts,MW,2031,8476.363636,Land,Land Consumed,Nominal,acres,3.5,29667.272726
+Solar,Electricity,Megawatts,MW,2032,9687.272727,Land,Land Consumed,Nominal,acres,3.5,33905.4545445
+Solar,Electricity,Megawatts,MW,2033,10898.18182,Land,Land Consumed,Nominal,acres,3.5,38143.63637
+Solar,Electricity,Megawatts,MW,2034,12109.09091,Land,Land Consumed,Nominal,acres,3.5,42381.818185000004
+Solar,Electricity,Megawatts,MW,2035,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2036,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2037,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2038,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2039,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2040,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2041,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2042,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2043,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2044,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Electricity,Megawatts,MW,2045,13320,Land,Land Consumed,Nominal,acres,3.5,46620
+Solar,Hydrogen,Metric Tons,MT,2025,0,Land,Land Consumed,Nominal,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2026,0,Land,Land Consumed,Nominal,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2027,0,Land,Land Consumed,Nominal,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2028,0,Land,Land Consumed,Nominal,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2029,0,Land,Land Consumed,Nominal,acres,0.0683,0
+Solar,Hydrogen,Metric Tons,MT,2030,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2031,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2032,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2033,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2034,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2035,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2036,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2037,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2038,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2039,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2040,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2041,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2042,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2043,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2044,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Solar,Hydrogen,Metric Tons,MT,2045,96000,Land,Land Consumed,Nominal,acres,0.0683,6556.8
+Wind,Electricity,Megawatts,MW,2025,24.90909091,Land,Land Consumed,Nominal,acres,2.5,62.272727275
+Wind,Electricity,Megawatts,MW,2026,49.81818182,Land,Land Consumed,Nominal,acres,2.5,124.54545455
+Wind,Electricity,Megawatts,MW,2027,74.72727273,Land,Land Consumed,Nominal,acres,2.5,186.81818182499998
+Wind,Electricity,Megawatts,MW,2028,99.63636364,Land,Land Consumed,Nominal,acres,2.5,249.0909091
+Wind,Electricity,Megawatts,MW,2029,124.5454545,Land,Land Consumed,Nominal,acres,2.5,311.36363625
+Wind,Electricity,Megawatts,MW,2030,149.4545455,Land,Land Consumed,Nominal,acres,2.5,373.63636375
+Wind,Electricity,Megawatts,MW,2031,174.3636364,Land,Land Consumed,Nominal,acres,2.5,435.909091
+Wind,Electricity,Megawatts,MW,2032,199.2727273,Land,Land Consumed,Nominal,acres,2.5,498.18181825000005
+Wind,Electricity,Megawatts,MW,2033,224.1818182,Land,Land Consumed,Nominal,acres,2.5,560.4545455
+Wind,Electricity,Megawatts,MW,2034,249.0909091,Land,Land Consumed,Nominal,acres,2.5,622.72727275
+Wind,Electricity,Megawatts,MW,2035,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2036,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2037,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2038,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2039,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2040,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2041,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2042,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2043,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2044,274,Land,Land Consumed,Nominal,acres,2.5,685
+Wind,Electricity,Megawatts,MW,2045,274,Land,Land Consumed,Nominal,acres,2.5,685
+Solar,Electricity,Megawatts,MW,2025,1210.909091,Land,Land Impacted,Nominal,acres,4.375,5297.727273125
+Solar,Electricity,Megawatts,MW,2026,2421.818182,Land,Land Impacted,Nominal,acres,4.375,10595.45454625
+Solar,Electricity,Megawatts,MW,2027,3632.727273,Land,Land Impacted,Nominal,acres,4.375,15893.181819375
+Solar,Electricity,Megawatts,MW,2028,4843.636364,Land,Land Impacted,Nominal,acres,4.375,21190.9090925
+Solar,Electricity,Megawatts,MW,2029,6054.545455,Land,Land Impacted,Nominal,acres,4.375,26488.636365625003
+Solar,Electricity,Megawatts,MW,2030,7265.454545,Land,Land Impacted,Nominal,acres,4.375,31786.363634374997
+Solar,Electricity,Megawatts,MW,2031,8476.363636,Land,Land Impacted,Nominal,acres,4.375,37084.0909075
+Solar,Electricity,Megawatts,MW,2032,9687.272727,Land,Land Impacted,Nominal,acres,4.375,42381.818180625
+Solar,Electricity,Megawatts,MW,2033,10898.18182,Land,Land Impacted,Nominal,acres,4.375,47679.5454625
+Solar,Electricity,Megawatts,MW,2034,12109.09091,Land,Land Impacted,Nominal,acres,4.375,52977.27273125001
+Solar,Electricity,Megawatts,MW,2035,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2036,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2037,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2038,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2039,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2040,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2041,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2042,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2043,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2044,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Electricity,Megawatts,MW,2045,13320,Land,Land Impacted,Nominal,acres,4.375,58275
+Solar,Hydrogen,Metric Tons,MT,2025,0,Land,Land Impacted,Nominal,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2026,0,Land,Land Impacted,Nominal,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2027,0,Land,Land Impacted,Nominal,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2028,0,Land,Land Impacted,Nominal,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2029,0,Land,Land Impacted,Nominal,acres,0.08537499999999999,0
+Solar,Hydrogen,Metric Tons,MT,2030,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2031,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2032,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2033,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2034,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2035,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2036,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2037,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2038,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2039,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2040,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2041,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2042,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2043,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2044,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Solar,Hydrogen,Metric Tons,MT,2045,96000,Land,Land Impacted,Nominal,acres,0.08537499999999999,8196
+Wind,Electricity,Megawatts,MW,2025,24.90909091,Land,Land Impacted,Nominal,acres,82,2042.5454546199999
+Wind,Electricity,Megawatts,MW,2026,49.81818182,Land,Land Impacted,Nominal,acres,82,4085.0909092399997
+Wind,Electricity,Megawatts,MW,2027,74.72727273,Land,Land Impacted,Nominal,acres,82,6127.63636386
+Wind,Electricity,Megawatts,MW,2028,99.63636364,Land,Land Impacted,Nominal,acres,82,8170.1818184799995
+Wind,Electricity,Megawatts,MW,2029,124.5454545,Land,Land Impacted,Nominal,acres,82,10212.727269
+Wind,Electricity,Megawatts,MW,2030,149.4545455,Land,Land Impacted,Nominal,acres,82,12255.272731
+Wind,Electricity,Megawatts,MW,2031,174.3636364,Land,Land Impacted,Nominal,acres,82,14297.818184799999
+Wind,Electricity,Megawatts,MW,2032,199.2727273,Land,Land Impacted,Nominal,acres,82,16340.363638600002
+Wind,Electricity,Megawatts,MW,2033,224.1818182,Land,Land Impacted,Nominal,acres,82,18382.9090924
+Wind,Electricity,Megawatts,MW,2034,249.0909091,Land,Land Impacted,Nominal,acres,82,20425.4545462
+Wind,Electricity,Megawatts,MW,2035,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2036,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2037,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2038,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2039,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2040,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2041,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2042,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2043,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2044,274,Land,Land Impacted,Nominal,acres,82,22468
+Wind,Electricity,Megawatts,MW,2045,274,Land,Land Impacted,Nominal,acres,82,22468

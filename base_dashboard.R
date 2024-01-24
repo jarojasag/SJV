@@ -144,6 +144,7 @@ emissions_hydrogen_agg <- emissions_hydrogen %>%
 # Changing order of Joins (Works Better)
 
 use_coefs <- commodity_use %>% 
+  rename(Use = `End Use`) %>% 
   filter(Commodity %in% intensity_ref_commodities) %>% 
   pivot_year("Proportion") %>% 
   left_join(c2u_data$`C2U UO Adjustment` %>% # Renamed to Make joinable with commodity_use (should I replace Grid with Electric Generation?)
@@ -172,7 +173,6 @@ emissions_hydrogen_agg <- emissions_hydrogen_agg %>%
 emissions_hydrogen_agg %>% write_csv("output/hydrogen_use.csv")
 
 # Electricity Use ---------------------------------------------------------
-
 
 emissions_electricity <- feedstock_commodity %>% 
   filter(Commodity %in% intensity_elec_commodities,
