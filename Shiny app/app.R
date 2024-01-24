@@ -24,7 +24,7 @@ ui <- fluidPage(
   h5("This tool presents a template portfolio of additional electricity, hydrogen, biomethane, and jet fuel energy buildouts in the SJV between 2025 and 2045. You can use the slider bars on the left to increase or decrease the buildout, switching between tabs to specify production of each energy type."),
   
   fluidRow(
-    column(12, offset = 0, downloadButton("downloadData", "Download Portfolio", style = "color: #fff; background-color: #FB8072; border-color: #FB8072;"))
+    column(1, offset = 0, downloadButton("downloadData", "Download Portfolio", style = "color: #fff; background-color: #FB8072; border-color: #FB8072;"))
   ), 
   h5(" "),
   navbarPage(
@@ -35,16 +35,56 @@ ui <- fluidPage(
              sidebarLayout(
                sidebarPanel(
                  helpText("Please specify the amount of electricity in GW from each of the following sources:"),
-                 actionButton("info_solar_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("solar_electricity", "Solar:", min = 0, max = 100, value = 26.6, step = 1, ticks = FALSE),
-                 actionButton("info_wind_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("wind_electricity", "Wind:", min = 0, max = 5, value = 0.55, step = 0.5, ticks = FALSE),
-                 actionButton("info_battery_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("battery_electricity", "Battery:", min = 0, max = 20, value = 14.8, step = 0.5, ticks = FALSE),
-                 actionButton("info_long_duration_storage_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("long_duration_storage_electricity", "Long-Duration Storage:", min = 0, max = 2, value = 1, step = 0.5, ticks = FALSE),
-                 actionButton("info_biomass_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("biomass_electricity", "Biomass:", min = 0, max = 1, value = 0.04, step = 0.01, ticks = FALSE),
+                 fluidRow(
+                   column(10,
+                          sliderInput("solar_electricity", "Solar:", min = 0, max = 100, value = 26.6, step = 1, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_solar_electricity", "", style = "font-size:12px; padding: 0px 6px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),
+                 fluidRow(
+                   column(10,
+                          sliderInput("wind_electricity", "Wind:", min = 0, max = 5, value = 0.55, step = 0.5, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_wind_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),
+                 fluidRow(
+                   column(10,
+                          sliderInput("battery_electricity", "Battery:", min = 0, max = 20, value = 14.8, step = 0.5, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_battery_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),
+                 fluidRow(
+                   column(10,
+                          sliderInput("long_duration_storage_electricity", "Long-Duration Storage:", min = 0, max = 2, value = 1, step = 0.5, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_long_duration_storage_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),
+                 fluidRow(
+                   column(10,
+                          sliderInput("biomass_electricity", "Biomass:", min = 0, max = 1, value = 0.04, step = 0.01, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_biomass_electricity", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),                 
                  actionButton("resetValues_electricity", "Reset to Default (Electricity)")
                ),
                mainPanel(
@@ -63,13 +103,36 @@ ui <- fluidPage(
              sidebarLayout(
                sidebarPanel(
                  helpText("Please specify the amount of hydrogen in thousands of tons from each of the following sources:"),
-                 actionButton("info_solar_hydrogen", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("solar_hydrogen", "Solar:", min = 0, max = 500, value = 310, step = 50, ticks = FALSE),
-                 actionButton("info_biomass_hydrogen", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("biomass_hydrogen", "Biomass:", min = 0, max = 500, value = 140, step = 50, ticks = FALSE),
-                 actionButton("info_natural_gas_hydrogen", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("natural_gas_hydrogen", "Natural Gas:", min = 0, max = 500, value = 11, step = 10, ticks = FALSE),
-                 actionButton("resetValues_hydrogen", "Reset to Default (Hydrogen)")
+                 fluidRow(
+                   column(10,
+                          sliderInput("solar_hydrogen", "Solar:", min = 0, max = 500, value = 310, step = 50, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_solar_hydrogen", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),
+                 fluidRow(
+                   column(10,
+                          sliderInput("biomass_hydrogen", "Biomass:", min = 0, max = 500, value = 140, step = 50, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_biomass_hydrogen", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),                 
+                 fluidRow(
+                   column(10,
+                          sliderInput("natural_gas_hydrogen", "Natural Gas:", min = 0, max = 500, value = 11, step = 10, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_natural_gas_hydrogen", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 )                
                ),
                mainPanel(
                  fluidRow(
@@ -87,8 +150,16 @@ ui <- fluidPage(
              sidebarLayout(
                sidebarPanel(
                  helpText("Please specify the amount of biomethane in billions of cubic feet from each of the following sources:"),
-                 actionButton("info_biomass_biomethane", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("biomass_biomethane", "Biomass:", min = 0, max = 30, value = 6, step = 1, ticks = FALSE),
+                 fluidRow(
+                   column(10,
+                          sliderInput("biomass_biomethane", "Biomass:", min = 0, max = 30, value = 6, step = 1, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_biomass_biomethane", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),                
                  actionButton("resetValues_biomethane", "Reset to Default (Biomethane)")
                ),
                mainPanel(
@@ -107,10 +178,26 @@ ui <- fluidPage(
              sidebarLayout(
                sidebarPanel(
                  helpText("Please specify the amount of sustainable aviation fuel in millions of gallons from each of the following sources:"),
-                 actionButton("info_fats_oils_greases_saf", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("fats_oils_greases_saf", "Fats, Oils, and Greases:", min = 0, max = 10, value = 5, step = 1, ticks = FALSE),
-                 actionButton("info_agriculture_forest_residue_saf", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle")),
-                 sliderInput("agriculture_forest_residue_saf", "Agriculture and Forest Residue:", min = 0, max = 100, value = 50, step = 5, ticks = FALSE),
+                 fluidRow(
+                   column(10,
+                          sliderInput("fats_oils_greases_saf", "Fats, Oils, and Greases:", min = 0, max = 10, value = 5, step = 1, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_fats_oils_greases_saf", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),
+                 fluidRow(
+                   column(10,
+                          sliderInput("agriculture_forest_residue_saf", "Agriculture and Forest Residue:", min = 0, max = 100, value = 50, step = 5, ticks = FALSE)
+                   ),
+                   column(1,
+                          div(style = "position: relative; top: 40px;",
+                              actionButton("info_agriculture_forest_residue_saf", "", style = "font-size:12px; padding: 0px 5px;", icon = icon("question-circle"))
+                          )
+                   )
+                 ),                
                  actionButton("resetValues_saf", "Reset to Default (SAF)")
                ),
                mainPanel(
