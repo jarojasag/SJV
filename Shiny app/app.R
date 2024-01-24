@@ -355,23 +355,30 @@ server <- function(input, output, session) {
   
   # Reset Values 
   
-  observeEvent(c(input$resetValues_electricity, input$resetValues_hydrogen, input$resetValues_biomethane, input$resetValues_saf), {
+  observeEvent(input$resetValues_electricity, {
     updateSliderInput(session, "solar_electricity", value = 26.6)
     updateSliderInput(session, "wind_electricity", value = 0.55)
     updateSliderInput(session, "battery_electricity", value = 14.8)
     updateSliderInput(session, "long_duration_storage_electricity", value = 1)
     updateSliderInput(session, "biomass_electricity", value = 0.04)
-    
+  })
+  
+  observeEvent(input$resetValues_hydrogen, {
     updateSliderInput(session, "solar_hydrogen", value = 310)
     updateSliderInput(session, "biomass_hydrogen", value = 140)
     updateSliderInput(session, "natural_gas_hydrogen", value = 11)
-    
-    updateSliderInput(session, "biomass_biomethane", value = 6)
-  
-    updateSliderInput(session, "fats_oils_greases_saf", value = 5)
-    updateSliderInput(session, "agriculture_forest_residue_saf", value = 50)
   })
   
+
+observeEvent(input$resetValues_biomethane, {
+  updateSliderInput(session, "biomass_biomethane", value = 6)
+})
+
+observeEvent(input$resetValues_saf, {
+  updateSliderInput(session, "fats_oils_greases_saf", value = 5)
+  updateSliderInput(session, "agriculture_forest_residue_saf", value = 50)
+})
+
   # Reactive text for Biomethane
   output$portfolioSummary_biomethane <- renderUI({
     total_biomethane <- sum(input$biomass_biomethane)
