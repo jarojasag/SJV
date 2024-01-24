@@ -21,7 +21,7 @@ ui <- fluidPage(
   h2("About"),
   h5("This Portfolio Design Tool is part of the San Joaquin Valley Energy Visioning Toolkit supported by the Clean Air Task Force. You can use it to design a portfolio of additional energy buildouts in the San Joaquin Valley and download and email that portfolio to nidhi@rand.org to run through the SJV Energy Visioning Model. It will be evaluated in terms of energy produced, jobs created, land requirements, water requirements, and GHG emissions."),
   h2("Instructions"),
-  h5("This tool presents a template portfolio of additional electricity, hydrogen, biomethane, and jet fuel energy buildouts in the SJV between 2025 and 2045. You can use the slider bars on the left to increase or decrease the buildout, switching between tabs to specify production of each energy type. For biomethane and hydrogen, you can also specify how they are used."),
+  h5("This tool presents a template portfolio of additional electricity, hydrogen, biomethane, and jet fuel energy buildouts in the SJV between 2025 and 2045. You can use the slider bars on the left to increase or decrease the buildout, switching between tabs to specify production of each energy type."),
   
   fluidRow(
     column(12, offset = 0, downloadButton("downloadData", "Download Portfolio", style = "color: #fff; background-color: #FB8072; border-color: #FB8072;"))
@@ -52,6 +52,7 @@ ui <- fluidPage(
                    column(8, plotOutput("CommPlot_electricity")),
                    column(4, 
                           h3("Portfolio Summary"),
+                          h5("Your portfolio procedures are:"),
                           h5(htmlOutput("portfolioSummary_electricity"))
                    )
                  )
