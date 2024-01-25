@@ -34,7 +34,7 @@ ui <- fluidPage(
              shinyjs::useShinyjs(),
              sidebarLayout(
                sidebarPanel(
-                 helpText("Please specify the amount of electricity in GW from each of the following sources:"),
+                 helpText("Please specify the amount of electric resources in GW by 2045 from each of the following sources:"),
                  fluidRow(
                    column(10,
                           sliderInput("solar_electricity", "Solar:", min = 0, max = 100, value = 26.6, step = 1, ticks = FALSE)
@@ -102,7 +102,7 @@ ui <- fluidPage(
     tabPanel("Hydrogen",
              sidebarLayout(
                sidebarPanel(
-                 helpText("Please specify the amount of hydrogen in thousands of tons from each of the following sources:"),
+                 helpText("Please specify the annual production of hydrogen in thousands of tons in 2045 from each of the following sources:"),
                  fluidRow(
                    column(10,
                           sliderInput("solar_hydrogen", "Solar:", min = 0, max = 500, value = 310, step = 50, ticks = FALSE)
@@ -150,7 +150,7 @@ ui <- fluidPage(
     tabPanel("Biomethane",
              sidebarLayout(
                sidebarPanel(
-                 helpText("Please specify the amount of biomethane in billions of cubic feet from each of the following sources:"),
+                 helpText("Please specify the annual production of biomethane in billions of cubic feet by 2045 from each of the following sources:"),
                  fluidRow(
                    column(10,
                           sliderInput("biomass_biomethane", "Biomass:", min = 0, max = 30, value = 6, step = 1, ticks = FALSE)
@@ -178,7 +178,7 @@ ui <- fluidPage(
     tabPanel("Sustainable Aviation Fuel",
              sidebarLayout(
                sidebarPanel(
-                 helpText("Please specify the amount of sustainable aviation fuel in millions of gallons from each of the following sources:"),
+                 helpText("Please specify the annual production of sustainable aviation fuel in millions of gallons by 2045 from each of the following sources:"),
                  fluidRow(
                    column(10,
                           sliderInput("fats_oils_greases_saf", "Fats, Oils, and Greases:", min = 0, max = 10, value = 5, step = 1, ticks = FALSE)
@@ -442,7 +442,7 @@ observeEvent(input$resetValues_saf, {
     total_saf <- sum(input$fats_oils_greases_saf, input$agriculture_forest_residue_saf)
     
     overall_summary <- paste(
-      "\u2022", " ", total_electricity, " GW of Electricity (",
+      "\u2022", " Building ", total_electricity, " GW of electric resources by 2045 (",
       scales::percent(input$solar_electricity / total_electricity), " from Solar, ",
       scales::percent(input$wind_electricity / total_electricity), " from Wind, ",
       scales::percent(input$battery_electricity / total_electricity), " from Battery, ",
@@ -455,7 +455,7 @@ observeEvent(input$resetValues_saf, {
     overall_summary <- paste(
       overall_summary,
       paragraph_break,
-      "\u2022", " ", total_hydrogen, " thousand metric tons of Hydrogen (",
+      "\u2022", " Producing ", total_hydrogen, " thousand metric tons of Hydrogen annually in 2045 (",
       scales::percent(input$solar_hydrogen / total_hydrogen), " from Solar, ",
       scales::percent(input$biomass_hydrogen / total_hydrogen), " from Biomass, ",
       scales::percent(input$natural_gas_hydrogen / total_hydrogen), " from Natural Gas + CCS)", sep = ""
@@ -464,14 +464,14 @@ observeEvent(input$resetValues_saf, {
     overall_summary <- paste(
       overall_summary,
       paragraph_break,
-      "\u2022", " ", total_biomethane, " Billion Cubic Feet of Biomethane (",
+      "\u2022", " Producing ", total_biomethane, " Billion Cubic Feet of Biomethane annually in 2045 (",
       scales::percent(input$biomass_biomethane / total_biomethane), " from Biomass)", sep = ""
     )
     
     overall_summary <- paste(
       overall_summary,
       paragraph_break,
-      "\u2022", " ", total_saf, " Million Gallons of Sustainable Aviation Fuel (",
+      "\u2022", " Producing ", total_saf, " Million Gallons of Sustainable Aviation Fuel annually in 2045 (",
       scales::percent(input$fats_oils_greases_saf / total_saf), " from Fats, Oils, and Greases, ",
       scales::percent(input$agriculture_forest_residue_saf / total_saf), " from Agriculture and Forest Residue)", sep = ""
     )
