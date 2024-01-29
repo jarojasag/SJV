@@ -84,89 +84,89 @@ Solar,Electricity,Megawatts,MW,2043,13320,Jobs,High School - No Training,# of Ne
 Solar,Electricity,Megawatts,MW,2044,13320,Jobs,High School - No Training,# of New Jobs,0.0346,0
 Solar,Electricity,Megawatts,MW,2045,13320,Jobs,High School - No Training,# of New Jobs,0.0346,0
 Solar,Hydrogen,Metric Tons,MT,2025,0,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2026,0,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2027,0,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2028,0,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2029,0,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2030,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,3206.4
-Solar,Hydrogen,Metric Tons,MT,2031,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2032,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2033,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2034,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2035,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2036,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2037,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2038,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2039,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2040,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2041,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2042,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2043,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2044,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
-Solar,Hydrogen,Metric Tons,MT,2045,96000,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2026,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,365.73
+Solar,Hydrogen,Metric Tons,MT,2027,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2028,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2029,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2030,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2031,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2032,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2033,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2034,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2035,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2036,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2037,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2038,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2039,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2040,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2041,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2042,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2043,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2044,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
+Solar,Hydrogen,Metric Tons,MT,2045,10950,Jobs,Bachelors - No or Some Training,# of New Jobs,0.0334,0
 Solar,Hydrogen,Metric Tons,MT,2025,0,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2026,0,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2027,0,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2028,0,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2029,0,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2030,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,539.52
-Solar,Hydrogen,Metric Tons,MT,2031,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2032,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2033,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2034,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2035,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2036,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2037,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2038,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2039,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2040,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2041,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2042,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2043,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2044,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
-Solar,Hydrogen,Metric Tons,MT,2045,96000,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2026,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,61.539
+Solar,Hydrogen,Metric Tons,MT,2027,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2028,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2029,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2030,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2031,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2032,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2033,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2034,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2035,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2036,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2037,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2038,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2039,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2040,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2041,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2042,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2043,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2044,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
+Solar,Hydrogen,Metric Tons,MT,2045,10950,Jobs,Graduate Degree,# of New Jobs,0.00562,0
 Solar,Hydrogen,Metric Tons,MT,2025,0,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2026,0,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2027,0,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2028,0,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2029,0,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2030,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,2707.2
-Solar,Hydrogen,Metric Tons,MT,2031,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2032,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2033,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2034,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2035,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2036,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2037,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2038,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2039,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2040,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2041,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2042,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2043,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2044,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
-Solar,Hydrogen,Metric Tons,MT,2045,96000,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2026,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,308.79
+Solar,Hydrogen,Metric Tons,MT,2027,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2028,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2029,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2030,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2031,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2032,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2033,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2034,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2035,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2036,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2037,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2038,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2039,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2040,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2041,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2042,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2043,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2044,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
+Solar,Hydrogen,Metric Tons,MT,2045,10950,Jobs,High School - Long-Term Training,# of New Jobs,0.0282,0
 Solar,Hydrogen,Metric Tons,MT,2025,0,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2026,0,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2027,0,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2028,0,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2029,0,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2030,96000,Jobs,High School - No Training,# of New Jobs,0.0346,3321.6
-Solar,Hydrogen,Metric Tons,MT,2031,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2032,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2033,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2034,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2035,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2036,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2037,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2038,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2039,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2040,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2041,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2042,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2043,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2044,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
-Solar,Hydrogen,Metric Tons,MT,2045,96000,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2026,10950,Jobs,High School - No Training,# of New Jobs,0.0346,378.87
+Solar,Hydrogen,Metric Tons,MT,2027,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2028,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2029,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2030,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2031,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2032,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2033,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2034,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2035,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2036,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2037,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2038,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2039,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2040,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2041,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2042,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2043,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2044,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
+Solar,Hydrogen,Metric Tons,MT,2045,10950,Jobs,High School - No Training,# of New Jobs,0.0346,0
 Wind,Electricity,Megawatts,MW,2025,24.90909091,Jobs,Bachelors - No or Some Training,# of New Jobs,0.02,0.4981818182
 Wind,Electricity,Megawatts,MW,2026,49.81818182,Jobs,Bachelors - No or Some Training,# of New Jobs,0.02,0.4981818182
 Wind,Electricity,Megawatts,MW,2027,74.72727273,Jobs,Bachelors - No or Some Training,# of New Jobs,0.02,0.49818181819999996

@@ -17,7 +17,6 @@ pivot_year <- function(data, val_names){
   
 }
 
-
 feedstock_use <- function(buildout, commodities, feedstock, f2c_data){
   # buildout: User Input
   # commodities: User Input
@@ -56,31 +55,30 @@ feedstock_plot <- function(feedstock_use_instance){
 commodity_use <- read_csv("data/commodity_to_use.csv")
 feedstock_commodity <- read_csv("data/feedstock_to_commodity.csv")
 
-# Reference Commodities/Feedstocks ----------------------------------------
+# Feedstock / Commodity / Use Items ---------------------------------------
 
-water_ref_commodities <- c("Hydrogen")
-water_ref_feedstock <- c("Natural Gas", "Solar")
+ref_commodities <- c("Electricity", "Hydrogen", "Biomethane")
 
-land_ref_commodities <- c("Electricity", "Hydrogen")
-land_ref_feedstock <- c("Solar", "Wind")
+hydrogen_feedstock <-  c("Solar", "Natural Gas")
+hydrogen_use <- c("Surface Transport Fuel", "Ammonia Production",
+                  "Green Steel", "Industrial Heat")
 
-jobs_ref_commodities <- c("Electricity", "Hydrogen")
-jobs_ref_feedstock <- c("Solar", "Wind")
+elec_feedstock <- c("Solar", "Wind", "Biomass", "Li Battery", "LDES")
+elec_use <- c("Grid")
 
-intensity_ref_commodities <- c("Hydrogen")
-intensity_ref_feedstock <- c("Natural Gas", "Solar")
-
-intensity_elec_commodities <- c("Electricity")
-intensity_elec_feedstock <- c("Solar", "Wind")
+biomethane_feedstock <- c("Animal Manure", "Diverted Organic Waste")
+biomethane_use <- c("Gas Grid", "Electricity", "Hydrogen")
 
 # Coefficients -----------------------------------------------------------
 
 architecture_sheets <- readxl::excel_sheets("SJV Variable Architecture.xlsx")
 f2c_sheets <- grepl("F2C", architecture_sheets)
 c2u_sheets <- grepl("C2U", architecture_sheets)
+conversion_sheets <- grepl("Conversion", architecture_sheets)
 
 coef_sheets <- architecture_sheets[f2c_sheets]
 use_sheets <- architecture_sheets[c2u_sheets]
+conversion_sheets <- architecture_sheets[conversion_sheets]
 
 f2c_data <- lapply(coef_sheets, function(x) 
   read_excel("SJV Variable Architecture.xlsx", sheet = x))
@@ -90,9 +88,13 @@ c2u_data <- lapply(use_sheets, function(x)
   read_excel("SJV Variable Architecture.xlsx", sheet = x))
 names(c2u_data) <- use_sheets
 
+conversion_data <- lapply(conversion_sheets, function(x) 
+  read_excel("SJV Variable Architecture.xlsx", sheet = x))
+names(conversion_data) <- conversion_sheets
+
 water_use_coef <- f2c_data$`F2C Water` %>% 
   select(Feedstock:Value) %>% 
-  filter(Commodity %in% water_ref_commodities)
+  filter(Commodity %in% "Hydrogen")
 
 land_use_coef <- f2c_data$`F2C Land` %>% 
   select(Feedstock:Value) %>% 
@@ -104,153 +106,115 @@ jobs_use_coef <- f2c_data$`F2C Jobs` %>%
   filter(Commodity %in% jobs_ref_commodities,
          Feedstock %in% jobs_ref_feedstock)
 
-intensity_use_coef <- f2c_data$`F2C CI` %>% 
-  select(Feedstock:`Energy Value`) %>% 
-  filter(Commodity %in% intensity_ref_commodities,
-         Feedstock %in% intensity_ref_feedstock)
+# Avoided Emissions -------------------------------------------------------
 
-# Unit Conversion ---------------------------------------------------------
+conversion_units <- conversion_data$`Unit Conversion` %>% 
+  filter(Commodity %in% ref_commodities) %>% 
+  select(Commodity, `Conversion Factor MJ`, `Unit MJ`) %>% 
+  distinct() 
 
-conversion_sheets <- grepl("Conversion", architecture_sheets)
-conversion_sheets <- architecture_sheets[conversion_sheets]
+effective_energy <- conversion_data$Conversion %>% 
+  filter(Commodity == "Electricity") %>% 
+  mutate(`Effective Unit` = "Effective MWh per MW") %>% 
+  select(Feedstock, Commodity, `Effective Unit`, `2025`:`2045`) %>%
+  mutate(`2025` = as.numeric(`2025`)) %>% 
+  pivot_year("Effective Energy Factor")
 
-conversion_data <- lapply(conversion_sheets, function(x) 
-  read_excel("SJV Variable Architecture.xlsx", sheet = x))
-names(conversion_data) <- conversion_sheets
+carbon_intensity <- f2c_data$`F2C CI` %>% 
+  filter(Commodity %in% ref_commodities) %>% 
+  select(Feedstock, Commodity, `Uncertainty Range Category`, 
+         `Energy Unit`, `Energy Value`) %>% 
+  distinct() %>% 
+  rename(`Carbon Intensity Unit` = `Energy Unit`,
+         `Carbon Intensity` = `Energy Value`)
 
-# Hydrogen Use ------------------------------------------------------------
+adjustment_factors <- c2u_data$`C2U UO Adjustment` %>% 
+  select(Commodity:`Adjustment Factor`)
 
-emissions_hydrogen <- feedstock_commodity %>% 
-  filter(Commodity %in% intensity_ref_commodities,
-         Feedstock %in% intensity_ref_feedstock) %>% 
-  pivot_year("Installation") %>% 
-  left_join(conversion_data$`Unit Conversion` %>% filter(Commodity %in% intensity_ref_commodities), 
-            by = c("Feedstock", "Commodity", "Commodity Unit", "Unit Code"),
-            relationship = "many-to-many") %>% 
-  mutate(`Energy in MJ` = Installation * `Conversion Factor MJ`) %>% 
-  select(-`Conversion Factor EJ`:-Unit) %>% # First Variable Drop
-  left_join(intensity_use_coef %>% filter(`Uncertainty Range Category` == "Nominal") %>% distinct, # Should I filter more? 
-            by = c("Feedstock", "Commodity"),
-            relationship = "many-to-many") %>% 
-  mutate(`GHG Emissions generated during F2C` = `Energy in MJ` * `Energy Value`)
+carbon_intensity_use <- c2u_data$`C2U CI` %>% 
+  pivot_year("Carbon Intensity") %>% 
+  select(Commodity, Use, year, `Carbon Intensity`) %>% 
+  rename(`Carbon Intensity of Use` = `Carbon Intensity`)
 
-emissions_hydrogen_agg <- emissions_hydrogen %>% 
-  group_by(Commodity, year) %>% 
-  summarize(`Energy in MJ` = sum(`Energy in MJ`), 
-            `GHG Emissions generated during F2C` = sum(`GHG Emissions generated during F2C`)) %>% 
-  ungroup()
+# F2C Emissions 
 
-# Uses
-# Changing order of Joins (Works Better)
-
-use_coefs <- commodity_use %>% 
-  rename(Use = `End Use`) %>% 
-  filter(Commodity %in% intensity_ref_commodities) %>% 
-  pivot_year("Proportion") %>% 
-  left_join(c2u_data$`C2U UO Adjustment` %>% # Renamed to Make joinable with commodity_use (should I replace Grid with Electric Generation?)
-              select(Commodity:`Adjustment Factor`) %>% 
-              filter(Commodity %in% intensity_ref_commodities), 
-            by = c("Commodity", "Use"),
-            relationship = "many-to-many") %>% 
-  left_join(c2u_data$`C2U CI` %>% # Renamed to Make joinable with commodity_use
-              filter(Commodity %in% intensity_ref_commodities) %>%
-              filter(Use == "Surface Transportation Fuel") %>% 
-              pivot_year("Carbon Intensity Coef"),
-            by = c("Commodity", "Use", "year"),
-            relationship = "many-to-many") %>% # Compared to and fuel displaced?
-  filter(`Uncertainty Range Category` == "Nominal") # Huge Filter 
-
-
-emissions_hydrogen_agg <- emissions_hydrogen_agg %>% 
-  left_join(use_coefs,
-            by = c("Commodity", "year")) %>% # If not aggregate, proportionality assumption
-  mutate(`Energy in MJ C2U` = `Energy in MJ` * Proportion,
-         `Adjusted Energy in MJ C2U` = `Energy in MJ` * `Adjustment Factor`,
-         `GHG Avoided During Use` = `Adjusted Energy in MJ C2U` * `Carbon Intensity Coef`,
-         `Net Avoidad GHG` = (`GHG Avoided During Use` - `GHG Emissions generated during F2C` * Proportion) / 1e12,
-         `Net Avoidad GHG Unit` = "Million MT CO2e")
-
-emissions_hydrogen_agg %>% write_csv("output/hydrogen_use.csv")
-
-# Electricity Use ---------------------------------------------------------
-
-emissions_electricity <- feedstock_commodity %>% 
-  filter(Commodity %in% intensity_elec_commodities,
-         Feedstock %in% intensity_elec_feedstock) %>% 
-  pivot_year("Installation") %>% 
-  left_join(conversion_data$Conversion %>% 
-              filter(Commodity %in% intensity_elec_commodities,
-                     Feedstock %in% intensity_elec_feedstock) %>% 
-              pivot_year("Effective Energy Factor Mwh/MW") %>% 
-              select(-`Time Dependent Variable Names`),
-          by = c("Feedstock", "Commodity", "year")) %>% 
-  mutate(`Energy in MWh` = Installation * `Effective Energy Factor Mwh/MW`) %>% 
-  left_join(conversion_data$`Unit Conversion` %>% filter(Commodity %in% intensity_elec_commodities), 
-            by = c("Feedstock", "Commodity"),
-            relationship = "many-to-many") %>% 
-  mutate(`Energy in MJ` = `Energy in MWh` * `Conversion Factor MJ`)
-
-emissions_electricity_agg <- emissions_electricity %>% 
-  group_by(Commodity, year) %>% 
-  summarize(`Energy in MJ` = sum(`Energy in MJ`)) %>% 
-  ungroup()
+non_electric <- feedstock_commodity %>% 
+  filter(Commodity %in% ref_commodities, Commodity != "Electricity") %>% 
+  pivot_year("Buildout") %>% 
+  left_join(conversion_units, by = "Commodity") %>% 
+  left_join(carbon_intensity, by = c("Feedstock", "Commodity"), relationship = "many-to-many") %>% 
+  mutate(`Energy Produced` = Buildout * `Conversion Factor MJ`,
+         `Energy Unit` = "MJ",
+         `Generated Emissions in F2C` = `Energy Produced` * `Carbon Intensity`) %>% 
+  filter(!is.na(`Energy Produced`))
   
+electric <- feedstock_commodity %>% 
+  filter(Commodity == "Electricity") %>% 
+  pivot_year("Buildout") %>% 
+  left_join(conversion_units, by = "Commodity") %>% 
+  left_join(effective_energy, by = c("Feedstock", "Commodity", "year")) %>% 
+  mutate(`Energy Produced` = Buildout * `Effective Energy Factor` * `Conversion Factor MJ`,
+         `Energy Unit` = "MJ",
+         `Generated Emissions in F2C` = 0) %>% 
+  filter(!is.na(`Energy Produced`))
+
+
+# C2U Emissions
+
+use_intensities <- commodity_use %>% 
+  pivot_year("Weight") %>% 
+  left_join(adjustment_factors, by = c("Commodity", "Use")) %>% 
+  left_join(carbon_intensity_use, by = c("Commodity", "Use", "year")) 
   
-# Uses
-  
-use_coefs_elec <- commodity_use %>% 
-  filter(Commodity %in% intensity_elec_commodities) %>% # Grid for Electric Generation
-  pivot_year("Proportion") %>% 
-    left_join(c2u_data$`C2U UO Adjustment` %>% # Renamed to Make joinable with commodity_use (should I replace Grid with Electric Generation?)
-              select(Commodity:`Adjustment Factor`) %>% 
-              filter(Commodity %in% intensity_elec_commodities), 
-            by = c("Commodity", "Use"),
+
+avoided_non_electric <- non_electric %>% 
+  left_join(use_intensities, by = c("Commodity", "year"), 
             relationship = "many-to-many") %>% 
-  left_join(c2u_data$`C2U CI` %>% # Renamed to Make joinable with commodity_use
-              filter(Commodity %in% intensity_elec_commodities) %>%
-              filter(Use %in% c("Surface Transportation Fuel", "Electric Generation")) %>% 
-              pivot_year("Carbon Intensity Coef"),
-            by = c("Commodity", "Use", "year"),
-            relationship = "many-to-many") %>% # Compared to and fuel displaced?
-  filter(`Uncertainty Range Category` == "Nominal") # Huge Filter 
+  mutate(`Adjusted Energy Used in MJ` = `Energy Produced` * Weight * `Adjustment Factor`,
+         `Emissions Avoided in C2U` = `Adjusted Energy Used in MJ` * `Carbon Intensity of Use`,
+         `Net Avoided Emissions` = (`Emissions Avoided in C2U` - `Generated Emissions in F2C` * Weight)/1e+12,
+         `Net Avoided Emissions Unit` = "million MT CO2e")
 
+avoided_electric <- electric %>% 
+  left_join(use_intensities, by = c("Commodity", "year"), 
+            relationship = "many-to-many") %>% 
+  mutate(`Adjusted Energy Used in MJ` = `Energy Produced` * Weight * `Adjustment Factor`,
+         `Emissions Avoided in C2U` = `Adjusted Energy Used in MJ` * `Carbon Intensity of Use`,
+         `Net Avoided Emissions` = (`Emissions Avoided in C2U` - `Generated Emissions in F2C` * Weight)/1e+12,
+         `Net Avoided Emissions Unit` = "million MT CO2e")
 
-emissions_electricity_agg <- emissions_electricity_agg %>% 
-  left_join(use_coefs_elec,
-            by = c("Commodity", "year")) %>% # If not aggregate, proportionality assumption
-  mutate(`Energy in MJ C2U` = `Energy in MJ` * Proportion,
-         `Adjusted Energy in MJ C2U` = `Energy in MJ` * `Adjustment Factor`,
-         `GHG Avoided During Use` = `Adjusted Energy in MJ C2U` * `Carbon Intensity Coef`) # Here Instructions Stop
+avoided_non_electric %>% write_csv("output/non_electric_avoided_emissions.csv")
+avoided_electric %>% write_csv("output/electric_avoided_emissions.csv")
 
-emissions_hydrogen_agg %>% write_csv("output/hydrogen_use.csv")
+# F2C Outputs -------------------------------------------------------------
 
-# Water Commodity ---------------------------------------------------------------
+# Water
 # Just Hydrogen for now
 # Metrics: consumption + withdrawal
 # Unit: Acre-ft/year per feedstock & commodity
 
-water_use <- feedstock_use(feedstock_commodity, water_ref_commodities, 
-                           water_ref_feedstock, water_use_coef) %>% 
+water_use <- feedstock_use(feedstock_commodity, "Hydrogen", hydrogen_feedstock, 
+                           water_use_coef) %>% 
   arrange(`Variable Subcategory`, Feedstock, Commodity, year) %>% 
-  mutate(`Conversion Value` = Installation * Value) 
+  mutate(`Conversion Value` = Installation * Value)
 
-# Plot
+  # Plot
+  
+  feedstock_plot(water_use) +
+    facet_wrap( ~ Feedstock + `Variable Subcategory`, scales = "free")
+  
+  ggsave("plots/water.png")
+  
+  # Test Output 
 
-feedstock_plot(water_use) +
-  facet_wrap( ~ Feedstock + `Variable Subcategory`, scales = "free")
+  water_use %>% write_csv("output/water_commodity_base.csv")
 
-ggsave("plots/water.png")
-
-# Test Output 
-
-water_use %>% write_csv("output/water_commodity_base.csv")
-
-# Land Commodity ----------------------------------------------------------------
+# Land
 # Metrics: Land Impacted + Land Consumed
 # Unit: Acres/year per feedstock & commodity
 
-land_use <- feedstock_use(feedstock_commodity, land_ref_commodities, 
-                          land_ref_feedstock, land_use_coef) %>% 
+land_use <- feedstock_use(feedstock_commodity, c("Electricity", "Hydrogen"), 
+                          c("Solar", "Wind"), land_use_coef) %>% 
   arrange(`Uncertainty Range Category`, `Variable Subcategory`, Feedstock, Commodity, year) %>% 
   group_by(`Uncertainty Range Category`, `Variable Subcategory`, Feedstock, Commodity) %>% 
   mutate(diff = Installation - dplyr::lag(Installation),
@@ -260,28 +224,28 @@ land_use <- feedstock_use(feedstock_commodity, land_ref_commodities,
   select(-diff) %>% 
   ungroup()
 
-# Plot
+  # Plot
+  
+  land_units <- land_use %>% select(`Variable Unit`) %>% distinct
+  land_use %>% 
+    ggplot(aes(x = year, y = `Conversion Value`, color = `Uncertainty Range Category`)) +
+    facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 2, scales = "free") +
+    geom_line() +
+    ylab(str_to_title(land_units$`Variable Unit`)) +
+    theme_bw()
+  
+  ggsave("plots/land.png")
+  
+  # Test Output 
+  
+  land_use %>% write_csv("output/land_commodity_base.csv")
 
-land_units <- land_use %>% select(`Variable Unit`) %>% distinct
-land_use %>% 
-  ggplot(aes(x = year, y = `Conversion Value`, color = `Uncertainty Range Category`)) +
-  facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 2, scales = "free") +
-  geom_line() +
-  ylab(str_to_title(land_units$`Variable Unit`)) +
-  theme_bw()
-
-ggsave("plots/land.png")
-
-# Test Output 
-
-land_use %>% write_csv("output/land_commodity_base.csv")
-
-# Job Commodity ---------------------------------------------------------
+# Jobs
 # Metrics:  Six metrics (4 by education and skill level, 1 for total, 2 for upper bound)
 # Unit: Jobs by year per feedstock & commodity 
 
-jobs_use <- feedstock_use(feedstock_commodity, jobs_ref_commodities, 
-                          jobs_ref_feedstock, jobs_use_coef) %>% 
+jobs_use <- feedstock_use(feedstock_commodity,  c("Electricity", "Hydrogen"), 
+                          c("Solar", "Wind"), jobs_use_coef) %>% 
   arrange(Feedstock, Commodity, `Variable Subcategory`, year) %>% 
   group_by(Feedstock, Commodity, `Variable Subcategory`) %>% 
   mutate(diff = Installation - dplyr::lag(Installation),
@@ -291,16 +255,16 @@ jobs_use <- feedstock_use(feedstock_commodity, jobs_ref_commodities,
   select(-diff) %>% 
   ungroup()
 
-# Plot
-
-feedstock_plot(jobs_use) +
-  facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 4, scales = "free")
-
-ggsave("plots/jobs.png")
-
-# Test Output 
-
-jobs_use %>% write_csv("output/jobs_commodity_base.csv")
+  # Plot
+  
+  feedstock_plot(jobs_use) +
+    facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 4, scales = "free")
+  
+  ggsave("plots/jobs.png")
+  
+  # Test Output 
+  
+  jobs_use %>% write_csv("output/jobs_commodity_base.csv")
 
 
 
