@@ -1,15 +1,19 @@
-﻿Feedstock,Commodity,Commodity Unit,Unit Code,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045
-Solar,Electricity,Megawatts,MW,1210.909091,2421.818182,3632.727273,4843.636364,6054.545455,7265.454545,8476.363636,9687.272727,10898.18182,12109.09091,13320,13320,13320,13320,13320,13320,13320,13320,13320,13320,13320
-Wind,Electricity,Megawatts,MW,24.90909091,49.81818182,74.72727273,99.63636364,124.5454545,149.4545455,174.3636364,199.2727273,224.1818182,249.0909091,274,274,274,274,274,274,274,274,274,274,274
-Biomass,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
-Li Battery,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
-LDES,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
-Solar,Hydrogen,Metric Tons,MT,0,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950
-Natural Gas,Hydrogen,Metric Tons,MT,0,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950
-Biomass,Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
-Agricultural waste,Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
-Forest waste,Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
-Plant Oil,Jet Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
-Animal Fat,Jet Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
-Animal Manure,Biomethane,Million Cubic Feet,MCF,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50
-Diverted Organic Waste,Biomethane,Million Cubic Feet,MCF,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60
+﻿Feedstock,“Primary” Conversion Technology,Commodity,Commodity Unit,Unit Code,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045
+Solar,PV,Electricity,Megawatts,MW,1210.909091,2421.818182,3632.727273,4843.636364,6054.545455,7265.454545,8476.363636,9687.272727,10898.18182,12109.09091,13320,13320,13320,13320,13320,13320,13320,13320,13320,13320,13320
+Wind,Wind turbine,Electricity,Megawatts,MW,24.90909091,49.81818182,74.72727273,99.63636364,124.5454545,149.4545455,174.3636364,199.2727273,224.1818182,249.0909091,274,274,274,274,274,274,274,274,274,274,274
+Li Battery,Battery Storage,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
+LDES,Pumped hydro,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
+Forest waste,Gasification + Gas Engine,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
+Agricultural waste,Gasification + Gas Engine,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
+Biomethane,Gas Engine,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
+Solar,PV + Electrolysis,Hydrogen,Metric Tons,MT,0,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950
+Natural Gas + CCS,SMR + CCS,Hydrogen,Metric Tons,MT,0,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950
+Agricultural waste,Gasification/ Pyrolysis + Conditioning,Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
+Forest waste,Gasification/ Pyrolysis + Conditioning,Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
+Biomethane,SMR or ATR (Autothermal Reforming),Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
+Animal Manure,Anaerobic Digestion + Conditioning,Biomethane,Million Cubic Feet,MCF,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50
+Diverted Organic Waste,Anaerobic Digestion + Conditioning,Biomethane,Million Cubic Feet,MCF,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60
+Plant Oils,HEFA,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
+Animal Fat,HEFA,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
+Agricultural waste,FT-Gasification,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
+Forest waste,FT-Gasification,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,

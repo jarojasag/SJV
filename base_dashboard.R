@@ -72,12 +72,12 @@ feedstock_commodity <- read_csv("data/feedstock_to_commodity.csv")
 
 ref_commodities <- c("Electricity", "Hydrogen", "Biomethane")
 
-hydrogen_feedstock <-  c("Solar", "Natural Gas")
+hydrogen_feedstock <-  c("Solar", "Natural Gas + CCS")
 hydrogen_use <- c("Surface Transport Fuel", "Ammonia Production",
                   "Green Steel", "Industrial Heat")
 
 elec_feedstock <- c("Solar", "Wind", "Biomass", "Li Battery", "LDES")
-elec_use <- c("Grid")
+elec_use <- c("Power Grid")
 
 biomethane_feedstock <- c("Animal Manure", "Diverted Organic Waste")
 biomethane_use <- c("Gas Grid", "Electricity", "Hydrogen")
