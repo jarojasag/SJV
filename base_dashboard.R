@@ -50,6 +50,19 @@ feedstock_plot <- function(feedstock_use_instance){
   
 }
 
+avoided_emissions <- function(emission_data, use_intensities){
+  # emission_data (tibble): F2C emissions generated
+  # use_intensities (tibble): C2U emission coefficients
+  
+  emission_data %>% 
+    left_join(use_intensities, by = c("Commodity", "year"), 
+            relationship = "many-to-many") %>% 
+    mutate(`Adjusted Energy Used in MJ` = `Energy Produced` * Weight * `Adjustment Factor`,
+           `Emissions Avoided in C2U` = `Adjusted Energy Used in MJ` * `Carbon Intensity of Use`,
+           `Net Avoided Emissions` = (`Emissions Avoided in C2U` - `Generated Emissions in F2C` * Weight)/1e+12,
+           `Net Avoided Emissions Unit` = "million MT CO2e")
+}
+
 # Base Buildouts ----------------------------------------------------------
 
 commodity_use <- read_csv("data/commodity_to_use.csv")
@@ -159,29 +172,18 @@ electric <- feedstock_commodity %>%
   filter(!is.na(`Energy Produced`))
 
 
-# C2U Emissions
+# Avoided Emissions DataFrames
 
 use_intensities <- commodity_use %>% 
   pivot_year("Weight") %>% 
   left_join(adjustment_factors, by = c("Commodity", "Use")) %>% 
   left_join(carbon_intensity_use, by = c("Commodity", "Use", "year")) 
   
-
 avoided_non_electric <- non_electric %>% 
-  left_join(use_intensities, by = c("Commodity", "year"), 
-            relationship = "many-to-many") %>% 
-  mutate(`Adjusted Energy Used in MJ` = `Energy Produced` * Weight * `Adjustment Factor`,
-         `Emissions Avoided in C2U` = `Adjusted Energy Used in MJ` * `Carbon Intensity of Use`,
-         `Net Avoided Emissions` = (`Emissions Avoided in C2U` - `Generated Emissions in F2C` * Weight)/1e+12,
-         `Net Avoided Emissions Unit` = "million MT CO2e")
-
+  avoided_emissions(use_intensities)
+  
 avoided_electric <- electric %>% 
-  left_join(use_intensities, by = c("Commodity", "year"), 
-            relationship = "many-to-many") %>% 
-  mutate(`Adjusted Energy Used in MJ` = `Energy Produced` * Weight * `Adjustment Factor`,
-         `Emissions Avoided in C2U` = `Adjusted Energy Used in MJ` * `Carbon Intensity of Use`,
-         `Net Avoided Emissions` = (`Emissions Avoided in C2U` - `Generated Emissions in F2C` * Weight)/1e+12,
-         `Net Avoided Emissions Unit` = "million MT CO2e")
+  avoided_emissions(use_intensities)
 
 avoided_non_electric %>% write_csv("output/non_electric_avoided_emissions.csv")
 avoided_electric %>% write_csv("output/electric_avoided_emissions.csv")
