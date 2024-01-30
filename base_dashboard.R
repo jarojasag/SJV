@@ -180,10 +180,12 @@ use_intensities <- commodity_use %>%
   left_join(carbon_intensity_use, by = c("Commodity", "Use", "year")) 
   
 avoided_non_electric <- non_electric %>% 
-  avoided_emissions(use_intensities)
+  avoided_emissions(use_intensities) %>% 
+  filter(!is.na(`Carbon Intensity of Use`))
   
 avoided_electric <- electric %>% 
-  avoided_emissions(use_intensities)
+  avoided_emissions(use_intensities)  %>% 
+  filter(!is.na(`Carbon Intensity of Use`))
 
 avoided_non_electric %>% write_csv("output/non_electric_avoided_emissions.csv")
 avoided_electric %>% write_csv("output/electric_avoided_emissions.csv")
