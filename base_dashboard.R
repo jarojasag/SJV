@@ -122,13 +122,12 @@ jobs_use_coef <- f2c_data$`F2C Jobs` %>%
 conversion_units <- conversion_data$`Unit Conversion` %>% 
   filter(Commodity %in% ref_commodities) %>% 
   select(Commodity, `Conversion Factor MJ`, `Unit MJ`) %>% 
-  distinct() 
+  distinct()
 
 effective_energy <- conversion_data$Conversion %>% 
   filter(Commodity == "Electricity") %>% 
   mutate(`Effective Unit` = "Effective MWh per MW") %>% 
-  select(Feedstock, Commodity, `Effective Unit`, `2025`:`2045`) %>%
-  mutate(`2025` = as.numeric(`2025`)) %>% 
+  select(Feedstock, Commodity, `Effective Unit`, `2025`:`2045`) %>% 
   pivot_year("Effective Energy Factor")
 
 carbon_intensity <- f2c_data$`F2C CI` %>% 
@@ -156,8 +155,8 @@ non_electric <- feedstock_commodity %>%
   left_join(carbon_intensity, by = c("Feedstock", "Commodity"), relationship = "many-to-many") %>% 
   mutate(`Energy Produced` = Buildout * `Conversion Factor MJ`,
          `Energy Unit` = "MJ",
-         `Generated Emissions in F2C` = `Energy Produced` * `Carbon Intensity`) %>% 
-  filter(!is.na(`Energy Produced`))
+         `Generated Emissions in F2C` = `Energy Produced` * `Carbon Intensity`) # %>% 
+  # filter(!is.na(`Energy Produced`))
   
 electric <- feedstock_commodity %>% 
   filter(Commodity == "Electricity") %>% 
@@ -166,8 +165,8 @@ electric <- feedstock_commodity %>%
   left_join(effective_energy, by = c("Feedstock", "Commodity", "year")) %>% 
   mutate(`Energy Produced` = Buildout * `Effective Energy Factor` * `Conversion Factor MJ`,
          `Energy Unit` = "MJ",
-         `Generated Emissions in F2C` = 0) %>% 
-  filter(!is.na(`Energy Produced`))
+         `Generated Emissions in F2C` = 0) # %>% 
+  # filter(!is.na(`Energy Produced`))
 
 
 # Avoided Emissions DataFrames
@@ -178,12 +177,12 @@ use_intensities <- commodity_use %>%
   left_join(carbon_intensity_use, by = c("Commodity", "Use", "year")) 
   
 avoided_non_electric <- non_electric %>% 
-  avoided_emissions(use_intensities) %>% 
-  filter(!is.na(`Carbon Intensity of Use`))
+  avoided_emissions(use_intensities) # %>% 
+  # filter(!is.na(`Carbon Intensity of Use`))
   
 avoided_electric <- electric %>% 
-  avoided_emissions(use_intensities)  %>% 
-  filter(!is.na(`Carbon Intensity of Use`))
+  avoided_emissions(use_intensities) # %>% 
+ # filter(!is.na(`Carbon Intensity of Use`))
 
 avoided_non_electric %>% write_csv("output/non_electric_avoided_emissions.csv")
 avoided_electric %>% write_csv("output/electric_avoided_emissions.csv")

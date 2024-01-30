@@ -1,19 +1,19 @@
 ﻿Feedstock,“Primary” Conversion Technology,Commodity,Commodity Unit,Unit Code,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045
-Solar,PV,Electricity,Megawatts,MW,1210.909091,2421.818182,3632.727273,4843.636364,6054.545455,7265.454545,8476.363636,9687.272727,10898.18182,12109.09091,13320,13320,13320,13320,13320,13320,13320,13320,13320,13320,13320
-Wind,Wind turbine,Electricity,Megawatts,MW,24.90909091,49.81818182,74.72727273,99.63636364,124.5454545,149.4545455,174.3636364,199.2727273,224.1818182,249.0909091,274,274,274,274,274,274,274,274,274,274,274
-Li Battery,Battery Storage,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
-LDES,Pumped hydro,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
-Forest waste,Gasification + Gas Engine,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
-Agricultural waste,Gasification + Gas Engine,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
+Solar,PV,Electricity,Megawatts,MW,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000,20000
+Wind,Wind turbine,Electricity,Megawatts,MW,25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,400,400,400,400,400
+Li Battery,Battery Storage,Electricity,Megawatts,MW,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+LDES,Pumped hydro,Electricity,Megawatts,MW,0,0,0,0,0,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,2000,2000,2000,2000,2000,2000
+Forest waste,Gasification + Gas Engine,Electricity,Megawatts,MW,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+Agricultural waste,Gasification + Gas Engine,Electricity,Megawatts,MW,0,0,0,0,0,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
 Biomethane,Gas Engine,Electricity,Megawatts,MW,,,,,,,,,,,,,,,,,,,,,
-Solar,PV + Electrolysis,Hydrogen,Metric Tons,MT,0,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950
-Natural Gas + CCS,SMR + CCS,Hydrogen,Metric Tons,MT,0,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950,10950
-Agricultural waste,Gasification/ Pyrolysis + Conditioning,Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
-Forest waste,Gasification/ Pyrolysis + Conditioning,Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
-Biomethane,SMR or ATR (Autothermal Reforming),Hydrogen,Metric Tons,MT,,,,,,,,,,,,,,,,,,,,,
+Solar,PV + Electrolysis,Hydrogen,Metric Tons,MT,0,0,0,0,0,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000
+Natural Gas + CCS,SMR + CCS,Hydrogen,Metric Tons,MT,0,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000,30000
+Agricultural waste,Gasification/ Pyrolysis + Conditioning,Hydrogen,Metric Tons,MT,0,0,0,0,0,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
+Forest waste,Gasification/ Pyrolysis + Conditioning,Hydrogen,Metric Tons,MT,0,0,0,0,0,0,0,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
+Biomethane,SMR or ATR (Autothermal Reforming),Hydrogen,Metric Tons,MT,0,0,0,0,0,0,0,0,0,100,100,100,100,100,100,100,100,100,100,100,100
 Animal Manure,Anaerobic Digestion + Conditioning,Biomethane,Million Cubic Feet,MCF,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50
-Diverted Organic Waste,Anaerobic Digestion + Conditioning,Biomethane,Million Cubic Feet,MCF,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60
-Plant Oils,HEFA,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
-Animal Fat,HEFA,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
-Agricultural waste,FT-Gasification,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
-Forest waste,FT-Gasification,Sustainable Aviation Fuel,Million Gallons,MGal,,,,,,,,,,,,,,,,,,,,,
+Diverted Organic Waste,Anaerobic Digestion + Conditioning,Biomethane,Million Cubic Feet,MCF,0,0,0,0,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50
+Plant Oils,HEFA,Sustainable Aviation Fuel,Million Gallons,MGal,0,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+Animal Fat,HEFA,Sustainable Aviation Fuel,Million Gallons,MGal,0,0,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+Agricultural waste,FT-Gasification,Sustainable Aviation Fuel,Million Gallons,MGal,0,0,0,0,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+Forest waste,FT-Gasification,Sustainable Aviation Fuel,Million Gallons,MGal,0,0,0,0,0,0,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
