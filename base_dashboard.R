@@ -107,17 +107,15 @@ names(conversion_data) <- conversion_sheets
 
 water_use_coef <- f2c_data$`F2C Water` %>% 
   select(Feedstock:Value) %>% 
-  filter(Commodity %in% "Hydrogen")
+  filter(Commodity %in% c("Electricity", "Hydrogen"))
 
 land_use_coef <- f2c_data$`F2C Land` %>% 
   select(Feedstock:Value) %>% 
-  filter(Commodity %in% land_ref_commodities,
-         Feedstock %in% land_ref_feedstock)
+  filter(Commodity %in% c("Electricity", "Hydrogen"))
 
 jobs_use_coef <- f2c_data$`F2C Jobs` %>% 
   select(Feedstock:Value) %>% 
-  filter(Commodity %in% jobs_ref_commodities,
-         Feedstock %in% jobs_ref_feedstock)
+  filter(Commodity %in% c("Electricity", "Hydrogen"))
 
 # Avoided Emissions -------------------------------------------------------
 
