@@ -56,7 +56,7 @@ avoided_emissions <- function(emission_data, use_intensities){
   
   emission_data %>% 
     left_join(use_intensities, by = c("Commodity", "year"), 
-            relationship = "many-to-many") %>% 
+              relationship = "many-to-many") %>% 
     mutate(`Adjusted Energy Used in MJ` = `Energy Produced` * Weight * `Adjustment Factor`,
            `Emissions Avoided in C2U` = `Adjusted Energy Used in MJ` * `Carbon Intensity of Use`,
            `Net Avoided Emissions` = (`Emissions Avoided in C2U` - `Generated Emissions in F2C` * Weight)/1e+12,
@@ -65,14 +65,34 @@ avoided_emissions <- function(emission_data, use_intensities){
 
 # Base Buildouts ----------------------------------------------------------
 
-commodity_use <- read_csv("data/commodity_to_use.csv")
-feedstock_commodity <- read_csv("data/feedstock_to_commodity.csv")
+# commodity_use <- read_csv("data/commodity_to_use.csv")
+# feedstock_commodity <- read_csv("data/feedstock_to_commodity.csv")
+
+# Reading Excel Portfolios
+
+portfolios <- list.files("data", pattern="*.xlsx", full.names=TRUE)
+f2c_porfolios <- lapply(portfolios, function(x) read_excel(x, sheet = "feedstock_to_commodity"))
+c2u_portfolios <- lapply(portfolios, function(x) read_excel(x, sheet = "commodity_to_use"))
+
+portfolio_names <- portfolios %>% 
+  str_extract("Portfolio.*xlsx") %>% 
+  str_remove(".xlsx")
+
+names(f2c_porfolios) <- portfolio_names
+names(c2u_portfolios) <- portfolio_names
+
+# From Excel Files
+
+portfolio_selector <-  4
+commodity_use <- c2u_portfolios[[portfolio_selector]] 
+feedstock_commodity <- f2c_porfolios[[portfolio_selector]] 
 
 # Feedstock / Commodity / Use Items ---------------------------------------
 
 ref_commodities <- c("Electricity", "Hydrogen", "Biomethane")
 
-hydrogen_feedstock <-  c("Solar", "Natural Gas + CCS")
+hydrogen_feedstock <-  c("Solar", "Natural Gas + CCS", "Agricultural waste",
+                         "Forest waste")
 hydrogen_use <- c("Surface Transport Fuel", "Ammonia Production",
                   "Green Steel", "Industrial Heat")
 
@@ -156,8 +176,8 @@ non_electric <- feedstock_commodity %>%
   mutate(`Energy Produced` = Buildout * `Conversion Factor MJ`,
          `Energy Unit` = "MJ",
          `Generated Emissions in F2C` = `Energy Produced` * `Carbon Intensity`) # %>% 
-  # filter(!is.na(`Energy Produced`))
-  
+# filter(!is.na(`Energy Produced`))
+
 electric <- feedstock_commodity %>% 
   filter(Commodity == "Electricity") %>% 
   pivot_year("Buildout") %>% 
@@ -166,26 +186,31 @@ electric <- feedstock_commodity %>%
   mutate(`Energy Produced` = Buildout * `Effective Energy Factor` * `Conversion Factor MJ`,
          `Energy Unit` = "MJ",
          `Generated Emissions in F2C` = 0) # %>% 
-  # filter(!is.na(`Energy Produced`))
+# filter(!is.na(`Energy Produced`))
 
 
-# Avoided Emissions DataFrames
+# C2U Emissions
 
 use_intensities <- commodity_use %>% 
   pivot_year("Weight") %>% 
   left_join(adjustment_factors, by = c("Commodity", "Use")) %>% 
   left_join(carbon_intensity_use, by = c("Commodity", "Use", "year")) 
-  
+
 avoided_non_electric <- non_electric %>% 
   avoided_emissions(use_intensities) # %>% 
-  # filter(!is.na(`Carbon Intensity of Use`))
-  
+# filter(!is.na(`Carbon Intensity of Use`))
+
 avoided_electric <- electric %>% 
   avoided_emissions(use_intensities) # %>% 
- # filter(!is.na(`Carbon Intensity of Use`))
+# filter(!is.na(`Carbon Intensity of Use`))
 
-avoided_non_electric %>% write_csv("output/non_electric_avoided_emissions.csv")
-avoided_electric %>% write_csv("output/electric_avoided_emissions.csv")
+avoided_non_electric %>% 
+  mutate(portfolio = portfolio_names[portfolio_selector]) %>% 
+  write_csv("output/non_electric_avoided_emissions_full.csv", append = TRUE)
+
+avoided_electric %>% 
+  mutate(portfolio = portfolio_names[portfolio_selector]) %>%  
+  write_csv("output/electric_avoided_emissions_full.csv", append = TRUE)
 
 # F2C Outputs -------------------------------------------------------------
 
@@ -199,16 +224,17 @@ water_use <- feedstock_use(feedstock_commodity, "Hydrogen", hydrogen_feedstock,
   arrange(`Variable Subcategory`, Feedstock, Commodity, year) %>% 
   mutate(`Conversion Value` = Installation * Value)
 
-  # Plot
-  
-  feedstock_plot(water_use) +
-    facet_wrap( ~ Feedstock + `Variable Subcategory`, scales = "free")
-  
-  ggsave("plots/water.png")
-  
-  # Test Output 
+# Plot
 
-  water_use %>% write_csv("output/water_commodity_base.csv")
+# feedstock_plot(water_use) +
+#  facet_wrap( ~ Feedstock + `Variable Subcategory`, scales = "free")
+
+# ggsave("plots/water.png")
+
+# Test Output 
+
+water_use %>% mutate(portfolio = portfolio_names[portfolio_selector]) %>% 
+  write_csv("output/water_commodity_base_full.csv", append = TRUE)
 
 # Land
 # Metrics: Land Impacted + Land Consumed
@@ -225,21 +251,22 @@ land_use <- feedstock_use(feedstock_commodity, c("Electricity", "Hydrogen"),
   select(-diff) %>% 
   ungroup()
 
-  # Plot
-  
-  land_units <- land_use %>% select(`Variable Unit`) %>% distinct
-  land_use %>% 
-    ggplot(aes(x = year, y = `Conversion Value`, color = `Uncertainty Range Category`)) +
-    facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 2, scales = "free") +
-    geom_line() +
-    ylab(str_to_title(land_units$`Variable Unit`)) +
-    theme_bw()
-  
-  ggsave("plots/land.png")
-  
-  # Test Output 
-  
-  land_use %>% write_csv("output/land_commodity_base.csv")
+# Plot
+
+# land_units <- land_use %>% select(`Variable Unit`) %>% distinct
+# land_use %>% 
+#  ggplot(aes(x = year, y = `Conversion Value`, color = `Uncertainty Range Category`)) +
+#  facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 2, scales = "free") +
+#  geom_line() +
+#  ylab(str_to_title(land_units$`Variable Unit`)) +
+#  theme_bw()
+
+# ggsave("plots/land.png")
+
+# Test Output 
+
+land_use %>% mutate(portfolio = portfolio_names[portfolio_selector]) %>% 
+  write_csv("output/land_commodity_base_full.csv", append = TRUE)
 
 # Jobs
 # Metrics:  Six metrics (4 by education and skill level, 1 for total, 2 for upper bound)
@@ -256,16 +283,17 @@ jobs_use <- feedstock_use(feedstock_commodity,  c("Electricity", "Hydrogen"),
   select(-diff) %>% 
   ungroup()
 
-  # Plot
-  
-  feedstock_plot(jobs_use) +
-    facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 4, scales = "free")
-  
-  ggsave("plots/jobs.png")
-  
-  # Test Output 
-  
-  jobs_use %>% write_csv("output/jobs_commodity_base.csv")
+# Plot
+
+# feedstock_plot(jobs_use) +
+#  facet_wrap( ~ Feedstock + Commodity +`Variable Subcategory`, ncol = 4, scales = "free")
+
+# ggsave("plots/jobs.png")
+
+# Test Output 
+
+jobs_use %>% mutate(portfolio = portfolio_names[portfolio_selector]) %>% 
+  write_csv("output/jobs_commodity_base_full.csv", append = TRUE)
 
 
 
