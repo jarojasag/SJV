@@ -137,9 +137,8 @@ get_avoided_emissions <- function(
     feedstock_commodity, commodity_use, portfolio_name, ref_commodities, 
     conversion_units, carbon_intensity_f2c, effective_energy) {
   
-  order_vector <- c("Portfolio", "Feedstock", "Commodity", "Use", "year", 
-                    "Buildout", "Proportional Buildout", "Commodity Unit", 
-                    "Unit Code",  "Energy Produced", "Proportional Energy",
+  order_vector <- c("Portfolio", "Feedstock", "Commodity", "Use", "year", "Weight",
+                    "Buildout", "Commodity Unit", "Unit Code",  "Energy Produced", 
                     "Energy Unit", "Adjusted Energy Used in MJ", 
                     "Uncertainty Range Category F2C", "Uncertainty Range Category C2U", 
                     "Net Avoided Emissions")
@@ -183,17 +182,13 @@ get_avoided_emissions <- function(
   ## Formatting Output
   
   avoided_non_electric <- avoided_non_electric %>% 
-    mutate(Portfolio = portfolio_name,
-           `Proportional Buildout` = Buildout * Weight,
-           `Proportional Energy` = `Energy Produced` * Weight) %>% 
+    mutate(Portfolio = portfolio_name) %>% 
     select(all_of(order_vector)) %>% 
     filter(`Uncertainty Range Category F2C` == `Uncertainty Range Category C2U`)
   # Making Uncertainty Range Column
   
   avoided_electric <- avoided_electric %>% 
-    mutate(Portfolio = portfolio_name,
-           `Proportional Buildout` = Buildout * Weight,
-           `Proportional Energy` = `Energy Produced` * Weight) %>%  
+    mutate(Portfolio = portfolio_name) %>%  
     select(all_of(order_vector)) %>% 
     mutate(`Uncertainty Range Category F2C` = `Uncertainty Range Category C2U`)
   # Making Uncertainty Range Column
@@ -208,12 +203,14 @@ get_avoided_emissions <- function(
     rename(Year = year, 
            `Net Avoided Emissions (MTCO2e) (min)` = Low,
            `Net Avoided Emissions (MTCO2e) (max)` = High, 
-           `Net Avoided Emissions (MTCO2e) (nominal)` = Nominal)
+           `Net Avoided Emissions (MTCO2e) (nominal)` = Nominal) %>% 
+    mutate(Buildout = Buildout * Weight, 
+           `Energy Produced` = `Energy Produced` * Weight) %>% 
+    select(-Weight)
   
   total_avoided_emissions <- total_avoided_emissions %>% 
     select(all_of(c("Portfolio", "Feedstock", "Commodity", "Use", "Year", 
-                    "Buildout", "Proportional Buildout", "Commodity Unit", 
-                    "Unit Code", "Energy Produced", "Proportional Energy",
+                    "Buildout", "Commodity Unit", "Unit Code", "Energy Produced",
                     "Energy Unit", "Adjusted Energy Used in MJ", 
                     "Net Avoided Emissions (MTCO2e) (min)", 
                     "Net Avoided Emissions (MTCO2e) (max)",
