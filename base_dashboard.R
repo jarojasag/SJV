@@ -114,8 +114,15 @@ total_uses <- lapply(seq_along(f2c_porfolios), function(x)
 total_uses <- total_uses %>% 
   bind_rows() 
 
+# Joining Data Frames -----------------------------------------------------
+
+final_output <- total_avoided_emissions %>% 
+  left_join(total_uses %>% select(-Buildout)) %>% 
+  mutate(`Feedstock Quantity` = `Feedstock Quantity` * Weight,
+         across(`Water Withdrawn (acre-feet) (nominal)`:`Land Impacted (acres) (nominal)`,  ~ . * Weight)) %>% 
+  select(-Weight)
+
 # Saving Output -----------------------------------------------------------
 
-write_xlsx(list("Avoided Emissions" = total_avoided_emissions,
-                "Uses" = total_uses),
+write_xlsx(list("Portfolio Analysis" = final_output),
            path = paste0("output/Full Portfolio Analysis ", today(), ".xlsx"))

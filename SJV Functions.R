@@ -205,8 +205,7 @@ get_avoided_emissions <- function(
            `Net Avoided Emissions (MTCO2e) (max)` = High, 
            `Net Avoided Emissions (MTCO2e) (nominal)` = Nominal) %>% 
     mutate(Buildout = Buildout * Weight, 
-           `Energy Produced` = `Energy Produced` * Weight) %>% 
-    select(-Weight)
+           `Energy Produced` = `Energy Produced` * Weight) 
   
   total_avoided_emissions <- total_avoided_emissions %>% 
     select(all_of(c("Portfolio", "Feedstock", "Commodity", "Use", "Year", 
@@ -214,7 +213,8 @@ get_avoided_emissions <- function(
                     "Energy Unit", "Adjusted Energy Used in MJ", 
                     "Net Avoided Emissions (MTCO2e) (min)", 
                     "Net Avoided Emissions (MTCO2e) (max)",
-                    "Net Avoided Emissions (MTCO2e) (nominal)")))
+                    "Net Avoided Emissions (MTCO2e) (nominal)",
+                    "Weight")))
   
   return(total_avoided_emissions)
 }
