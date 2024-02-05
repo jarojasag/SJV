@@ -138,9 +138,10 @@ get_avoided_emissions <- function(
     conversion_units, carbon_intensity_f2c, effective_energy) {
   
   order_vector <- c("Portfolio", "Feedstock", "Commodity", "Use", "year", 
-                    "Buildout", "Proportional Buildout", "Commodity Unit", "Unit Code", 
-                    "Energy Produced", "Energy Unit", "Adjusted Energy Used in MJ", 
-                    "Uncertainty Range Category F2C", "Uncertainty Range Category C2U",
+                    "Buildout", "Proportional Buildout", "Commodity Unit", 
+                    "Unit Code",  "Energy Produced", "Proportional Energy",
+                    "Energy Unit", "Adjusted Energy Used in MJ", 
+                    "Uncertainty Range Category F2C", "Uncertainty Range Category C2U", 
                     "Net Avoided Emissions")
   
   # Avoided Emissions -------------------------------------------------------
@@ -183,14 +184,16 @@ get_avoided_emissions <- function(
   
   avoided_non_electric <- avoided_non_electric %>% 
     mutate(Portfolio = portfolio_name,
-           `Proportional Buildout` = Buildout * Weight) %>% 
+           `Proportional Buildout` = Buildout * Weight,
+           `Proportional Energy` = `Energy Produced` * Weight) %>% 
     select(all_of(order_vector)) %>% 
     filter(`Uncertainty Range Category F2C` == `Uncertainty Range Category C2U`)
   # Making Uncertainty Range Column
   
   avoided_electric <- avoided_electric %>% 
     mutate(Portfolio = portfolio_name,
-           `Proportional Buildout` = Buildout * Weight) %>%  
+           `Proportional Buildout` = Buildout * Weight,
+           `Proportional Energy` = `Energy Produced` * Weight) %>%  
     select(all_of(order_vector)) %>% 
     mutate(`Uncertainty Range Category F2C` = `Uncertainty Range Category C2U`)
   # Making Uncertainty Range Column
@@ -210,7 +213,7 @@ get_avoided_emissions <- function(
   total_avoided_emissions <- total_avoided_emissions %>% 
     select(all_of(c("Portfolio", "Feedstock", "Commodity", "Use", "Year", 
                     "Buildout", "Proportional Buildout", "Commodity Unit", 
-                    "Unit Code", "Energy Produced", 
+                    "Unit Code", "Energy Produced", "Proportional Energy",
                     "Energy Unit", "Adjusted Energy Used in MJ", 
                     "Net Avoided Emissions (MTCO2e) (min)", 
                     "Net Avoided Emissions (MTCO2e) (max)",
@@ -252,7 +255,8 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
   # Water use calculation
   water_use <- feedstock_use(feedstock_commodity, ref_commodities, 
                              c("Solar", "Natural Gas + CCS", 
-                               "Agricultural waste", "Forest waste"), 
+                               "Agricultural waste", "Forest waste",
+                               "Animal Manure", "Diverted Organic Waste"), 
                              water_use_coef) %>% 
     arrange(`Variable Subcategory`, Feedstock, Commodity, year) %>% 
     mutate(`Conversion Value` = Buildout * Value,

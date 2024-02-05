@@ -33,7 +33,7 @@ names(conversion_data) <- conversion_sheets
 
 water_use_coef <- f2c_data$`F2C Water` %>% 
   select(Feedstock:Value) %>% 
-  filter(Commodity %in% c("Electricity", "Hydrogen"))
+  filter(Commodity %in% c("Electricity", "Hydrogen", "Biomethane"))
 
 land_use_coef <- f2c_data$`F2C Land` %>% 
   select(Feedstock:Value) %>% 
