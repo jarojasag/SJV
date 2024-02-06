@@ -164,7 +164,7 @@ get_avoided_emissions <- function(
     mutate(`Energy Produced` = Buildout * `Effective Energy Factor` * `Conversion Factor MJ`,
            `Energy Unit` = "MJ",
            `Generated Emissions in F2C` = 0,
-           `Uncertainty Range Category F2C` = NA) 
+           `Uncertainty Range Category F2C` = NA)
   
   #### C2U Emissions
   
@@ -277,12 +277,12 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
   
   # Jobs Use Calculation
   
-  jobs_use <- feedstock_use(f2c_porfolios[[1]],  "Electricity", 
-                            c("Solar", "Wind", "Li Battery", "LDES",  "Forest waste", "Agricultural waste"), jobs_use_coef) %>% 
+  jobs_use <- feedstock_use(feedstock_commodity,  "Electricity", 
+                            c("Solar", "Wind", "Li Battery", "LDES",  "Forest waste", "Agricultural waste"), 
+                            jobs_use_coef) %>% 
     arrange(Feedstock, Commodity, `Variable Subcategory`, year) %>% 
     group_by(Feedstock, Commodity, `Variable Subcategory`) %>% 
     mutate(diff = Buildout - dplyr::lag(Buildout),
-           test = (1 - `Productivity`) ** (year - 2025),
            `Conversion Value` = case_when(diff > 0 ~ diff * Value * Multiplier * (1 - `Productivity`) ** (year - 2025),
                                           is.na(diff) ~ Buildout * Value * Multiplier,  
                                           .default = 0))  %>% 
