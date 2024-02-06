@@ -125,4 +125,4 @@ final_output <- total_avoided_emissions %>%
 # Saving Output -----------------------------------------------------------
 
 write_xlsx(list("Avoided Emissions" = final_output),
-           path = paste0("output/Full Portfolio Analysis ", today(), ".xlsx"))
+           path = paste0("output/Full Portfolio Analysis 2024-02-05.xlsx"))
