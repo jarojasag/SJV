@@ -1,0 +1,49 @@
+Feedstock,Commodity,Type of Energy,Variable Subcategory,Unit Greg,Variable Unit,Value,Annual Productivity,multiplier
+Solar,Electricity,Electrons,Utility Solar - Direct,MW,# of New Jobs,0.051,0.0451524129591818,0.051
+Solar,Electricity,Electrons,Utility Solar - Indirect,MW,# of New Jobs,0.051,0.0451524129591818,0.00969
+Solar,Electricity,Electrons,Utility Solar - Induced,MW,# of New Jobs,0.051,0.0451524129591818,0.01632
+Wind,Electricity,Electrons,Wind - Direct,MW,# of New Jobs,0.002,0.00830349484762738,1.843310986964618
+Wind,Electricity,Electrons,Wind - Indirect,MW,# of New Jobs,0.002,0.00830349484762738,0.4423946368715084
+Wind,Electricity,Electrons,Wind - Induced,MW,# of New Jobs,0.002,0.00830349484762738,0.608292625698324
+Li Battery,Electricity,Electrons,Battery Storage - Direct,MW,# of New Jobs,0.788,0.03783203915281119,0.788
+Li Battery,Electricity,Electrons,Battery Storage - Indirect,MW,# of New Jobs,0.788,0.03783203915281119,NA
+Li Battery,Electricity,Electrons,Battery Storage - Induced,MW,# of New Jobs,0.788,0.03783203915281119,NA
+LDES,Electricity,NA,NA - Direct,NA,# of New Jobs,NA,NA,NA
+LDES,Electricity,NA,NA - Indirect,NA,# of New Jobs,NA,NA,NA
+LDES,Electricity,NA,NA - Induced,NA,# of New Jobs,NA,NA,NA
+Forest waste,Electricity,Electrons,Biomass Electric - Direct,MW,# of New Jobs,0.007,0.011585743964712458,4.9924583333333334
+Forest waste,Electricity,Electrons,Biomass Electric - Indirect,MW,# of New Jobs,0.007,0.011585743964712458,1.2980391666666666
+Forest waste,Electricity,Electrons,Biomass Electric - Induced,MW,# of New Jobs,0.007,0.011585743964712458,1.7473604166666665
+Agricultural waste,Electricity,Electrons,Biomass Electric - Direct,MW,# of New Jobs,0.007,0.011585743964712458,4.9924583333333334
+Agricultural waste,Electricity,Electrons,Biomass Electric - Indirect,MW,# of New Jobs,0.007,0.011585743964712458,1.2980391666666666
+Agricultural waste,Electricity,Electrons,Biomass Electric - Induced,MW,# of New Jobs,0.007,0.011585743964712458,1.7473604166666665
+Solar,Hydrogen,NA,Electrolysis Hydrogen (No data) - Direct,NA,# of New Jobs,NA,NA,NA
+Solar,Hydrogen,NA,Electrolysis Hydrogen (No data) - Indirect,NA,# of New Jobs,NA,NA,NA
+Solar,Hydrogen,NA,Electrolysis Hydrogen (No data) - Induced,NA,# of New Jobs,NA,NA,NA
+Natural Gas + CCS,Hydrogen,Molecules,SMR Hydrogen (Blue) - Direct,Mil Ft3/day,# of New Jobs,NA,NA,NA
+Natural Gas + CCS,Hydrogen,Molecules,SMR Hydrogen (Blue) - Indirect,Mil Ft3/day,# of New Jobs,NA,NA,NA
+Natural Gas + CCS,Hydrogen,Molecules,SMR Hydrogen (Blue) - Induced,Mil Ft3/day,# of New Jobs,NA,NA,NA
+Agricultural waste,Hydrogen,Molecules,Woody Biomass/Cellulosic Biofuel - Direct,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.234
+Agricultural waste,Hydrogen,Molecules,Woody Biomass/Cellulosic Biofuel - Indirect,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.028080000000000004
+Agricultural waste,Hydrogen,Molecules,Woody Biomass/Cellulosic Biofuel - Induced,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.05616000000000001
+Forest waste,Hydrogen,Molecules,Woody Biomass/Cellulosic Biofuel - Direct,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.234
+Forest waste,Hydrogen,Molecules,Woody Biomass/Cellulosic Biofuel - Indirect,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.028080000000000004
+Forest waste,Hydrogen,Molecules,Woody Biomass/Cellulosic Biofuel - Induced,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.05616000000000001
+Biomethane,Hydrogen,Molecules,SMR Hydrogen - Direct,Mil Ft3/day,# of New Jobs,10.436,0.02835834213692645,10.436
+Biomethane,Hydrogen,Molecules,SMR Hydrogen - Indirect,Mil Ft3/day,# of New Jobs,10.436,0.02835834213692645,NA
+Biomethane,Hydrogen,Molecules,SMR Hydrogen - Induced,Mil Ft3/day,# of New Jobs,10.436,0.02835834213692645,NA
+Animal Manure,Biomethane,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Direct,?,# of New Jobs,NA,NA,NA
+Animal Manure,Biomethane,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Indirect,?,# of New Jobs,NA,NA,NA
+Animal Manure,Biomethane,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Induced,?,# of New Jobs,NA,NA,NA
+Diverted Organic Waste,Biomethane,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Direct,?,# of New Jobs,NA,NA,NA
+Diverted Organic Waste,Biomethane,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Indirect,?,# of New Jobs,NA,NA,NA
+Diverted Organic Waste,Biomethane,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Induced,?,# of New Jobs,NA,NA,NA
+Animal Fat,Sustainable Aviation Fuel,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Direct,?,# of New Jobs,0.234,0.02835834213692645,0.234
+Animal Fat,Sustainable Aviation Fuel,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Indirect,?,# of New Jobs,0.234,0.02835834213692645,NA
+Animal Fat,Sustainable Aviation Fuel,Molecules,Other Ethanol/Non-Woody Biomass Fuel - Induced,?,# of New Jobs,0.234,0.02835834213692645,NA
+Agricultural waste,Sustainable Aviation Fuel,Molecules,Woody Biomass/Cellulosic Biofuel - Direct,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.234
+Agricultural waste,Sustainable Aviation Fuel,Molecules,Woody Biomass/Cellulosic Biofuel - Indirect,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,NA
+Agricultural waste,Sustainable Aviation Fuel,Molecules,Woody Biomass/Cellulosic Biofuel - Induced,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,NA
+Forest waste,Sustainable Aviation Fuel,Molecules,Woody Biomass/Cellulosic Biofuel - Direct,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,0.234
+Forest waste,Sustainable Aviation Fuel,Molecules,Woody Biomass/Cellulosic Biofuel - Indirect,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,NA
+Forest waste,Sustainable Aviation Fuel,Molecules,Woody Biomass/Cellulosic Biofuel - Induced,Bil. BTU,# of New Jobs,0.234,0.02835834213692645,NA

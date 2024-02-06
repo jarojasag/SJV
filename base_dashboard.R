@@ -40,8 +40,8 @@ land_use_coef <- f2c_data$`F2C Land` %>%
   filter(Commodity %in% c("Electricity", "Hydrogen"))
 
 jobs_use_coef <- f2c_data$`F2C Jobs` %>% 
-  select(Feedstock:Value) %>% 
-  filter(Commodity %in% c("Electricity", "Hydrogen"))
+  select(Feedstock:Multiplier) %>% 
+  filter(Commodity %in% c("Electricity"))
 
 conversion_units <- conversion_data$`Unit Conversion` %>% 
   filter(Commodity %in% ref_commodities) %>% 
@@ -109,7 +109,7 @@ total_avoided_emissions <- total_avoided_emissions %>%
 
 total_uses <- lapply(seq_along(f2c_porfolios), function(x)
   find_uses(f2c_porfolios[[x]], portfolio_names[x],ref_commodities, 
-            water_use_coef, land_use_coef, f2c_conversion))
+            water_use_coef, land_use_coef, jobs_use_coef, f2c_conversion))
 
 total_uses <- total_uses %>% 
   bind_rows() 
@@ -119,7 +119,7 @@ total_uses <- total_uses %>%
 final_output <- total_avoided_emissions %>% 
   left_join(total_uses %>% select(-Buildout)) %>% 
   mutate(`Feedstock Quantity` = `Feedstock Quantity` * Weight,
-         across(`Water Withdrawn (acre-feet) (nominal)`:`Land Impacted (acres) (nominal)`,  ~ . * Weight)) %>% 
+         across(`Water Withdrawn (acre-feet) (nominal)`:`Induced Employment (# New Jobs) (nominal)`,  ~ . * Weight)) %>% 
   select(-Weight)
 
 # Saving Output -----------------------------------------------------------

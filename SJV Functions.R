@@ -230,6 +230,7 @@ get_avoided_emissions <- function(
 #' @param ref_commodities A vector of reference commodities for feedstock use.
 #' @param water_use_coef Water use coefficients for specific feedstocks.
 #' @param land_use_coef Land use coefficients for specific feedstocks.
+#' @param jobs_use_coef Jobs use coefficients for specific feedstocks.
 #' @param f2c_conversion F2C conversion data.
 #' 
 #' @return A tibble with calculated environmental impact, including water and land use.
@@ -238,11 +239,12 @@ get_avoided_emissions <- function(
 #' \dontrun{
 #' uses_data <- find_uses(feedstock_commodity_data, "PortfolioName", 
 #'                        c("Electricity", "Hydrogen", "Biomethane", "Sustainable Aviation Fuel"), 
-#'                        water_use_coefficients, land_use_coefficients, f2c_conversion_data)
+#'                        water_use_coefficients, land_use_coefficients, jobs_use_coef,
+#'                        f2c_conversion_data)
 #' }
 #'
 find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities, 
-                      water_use_coef, land_use_coef, f2c_conversion){
+                      water_use_coef, land_use_coef, jobs_use_coef, f2c_conversion){
   
   # Selecting columns for final output
   selector <- c("Feedstock", "Commodity", "year", "Buildout",
@@ -273,12 +275,29 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
     ungroup() %>% 
     select(all_of(selector))
   
-  # Combining water and land use data
-  total_uses <- bind_rows(water_use, land_use) %>% 
+  # Jobs Use Calculation
+  
+  jobs_use <- feedstock_use(f2c_porfolios[[1]],  "Electricity", 
+                            c("Solar", "Wind", "Li Battery", "LDES",  "Forest waste", "Agricultural waste"), jobs_use_coef) %>% 
+    arrange(Feedstock, Commodity, `Variable Subcategory`, year) %>% 
+    group_by(Feedstock, Commodity, `Variable Subcategory`) %>% 
+    mutate(diff = Buildout - dplyr::lag(Buildout),
+           test = (1 - `Productivity`) ** (year - 2025),
+           `Conversion Value` = case_when(diff > 0 ~ diff * Value * Multiplier * (1 - `Productivity`) ** (year - 2025),
+                                          is.na(diff) ~ Buildout * Value * Multiplier,  
+                                          .default = 0))  %>% 
+    select(-diff) %>% 
+    ungroup() %>% 
+    mutate(`Uncertainty Range Category` = "Nominal") %>% 
+    select(all_of(selector)) 
+  
+  # Pivot data for wide representatio
+  total_uses <- bind_rows(water_use, land_use, jobs_use) %>% 
     left_join(f2c_conversion) %>% 
     mutate(`Feedstock Quantity` = Buildout / `F2C Conversion Factor`,
-           `Feedstock Energy MJ` = `Feedstock Quantity` * `Feedstock Energy Conversion (based on LHV)`)
-  
+           `Feedstock Energy MJ` = `Feedstock Quantity` * `Feedstock Energy Conversion (based on LHV)`) %>% 
+    filter(!is.na(`Variable Subcategory`)) # Remove What Cannot be Identified
+    
   # Pivot data for wider representation
   total_uses <- total_uses %>% 
     pivot_wider(values_from = `Conversion Value`,
@@ -290,7 +309,8 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
                     "Land Consumed_Low", "Land Impacted_Low",
                     "Land Consumed_High", "Land Impacted_High",
                     "Land Consumed_Nominal", "Land Impacted_Nominal",
-                    "Feedstock Energy MJ"))) %>% 
+                    "Feedstock Energy MJ", "Direct_Nominal", "Indirect_Nominal", 
+                    "Induced_Nominal"))) %>% 
     rename(`Water Withdrawn (acre-feet) (nominal)` = `Water Withdrawal_Nominal`,
            `Water Consumed (acre-feet) (nominal)` = `Water Consumption_Nominal`,
            `Land Consumed (acres) (nominal)` = `Land Consumed_Nominal`, 
@@ -299,7 +319,11 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
            `Land Impacted (acres) (min)` = `Land Impacted_Low`,
            `Land Consumed (acres) (max)` = `Land Consumed_High`,
            `Land Impacted (acres) (max)` = `Land Impacted_High`,
+           `Direct Employment (# New Jobs) (nominal)` = `Direct_Nominal`, 
+           `Indirect Employment (# New Jobs) (nominal)` = `Indirect_Nominal`,    
+           `Induced Employment (# New Jobs) (nominal)` = `Induced_Nominal`,  
            Year = year) 
   
   return(total_uses)
+
 }

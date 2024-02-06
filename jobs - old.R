@@ -10,13 +10,15 @@ elec_use <- c("Power Grid")
 biomethane_feedstock <- c("Animal Manure", "Diverted Organic Waste")
 biomethane_use <- c("Gas Grid", "Electricity", "Hydrogen")
 
-jobs_use <- feedstock_use(f2c_porfolios[[1]],  ref_commodities, 
-                          c("Solar", "Wind"), jobs_use_coef) %>% 
+jobs_use <- feedstock_use(f2c_porfolios[[1]],  "Electricity", 
+                          c("Solar", "Wind", "Li Battery", "LDES",  "Forest waste", "Agricultural waste"), jobs_use_coef) %>% 
   arrange(Feedstock, Commodity, `Variable Subcategory`, year) %>% 
   group_by(Feedstock, Commodity, `Variable Subcategory`) %>% 
   mutate(diff = Buildout - dplyr::lag(Buildout),
-         `Conversion Value` = case_when(diff > 0 ~ diff *  Value,
+         test = (1 - `Annual Productivity`) ** (year - 2025),
+         `Conversion Value` = case_when(diff > 0 ~ diff *  Value * (1 - `Annual Productivity`) ** (year - 2025),
                                         is.na(diff) ~ Buildout * Value,  
                                         .default = 0))  %>% 
   select(-diff) %>% 
   ungroup()
+jobs_use %>% View
