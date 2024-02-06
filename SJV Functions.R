@@ -276,7 +276,8 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
   # Combining water and land use data
   total_uses <- bind_rows(water_use, land_use) %>% 
     left_join(f2c_conversion) %>% 
-    mutate(`Feedstock Quantity` = Buildout / `F2C Conversion Factor`)
+    mutate(`Feedstock Quantity` = Buildout / `F2C Conversion Factor`,
+           `Feedstock Energy MJ` = `Feedstock Quantity` * `Feedstock Energy Conversion (based on LHV)`)
   
   # Pivot data for wider representation
   total_uses <- total_uses %>% 
@@ -288,7 +289,8 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
                     "Water Withdrawal_Nominal", "Water Consumption_Nominal",
                     "Land Consumed_Low", "Land Impacted_Low",
                     "Land Consumed_High", "Land Impacted_High",
-                    "Land Consumed_Nominal", "Land Impacted_Nominal"))) %>% 
+                    "Land Consumed_Nominal", "Land Impacted_Nominal",
+                    "Feedstock Energy MJ"))) %>% 
     rename(`Water Withdrawn (acre-feet) (nominal)` = `Water Withdrawal_Nominal`,
            `Water Consumed (acre-feet) (nominal)` = `Water Consumption_Nominal`,
            `Land Consumed (acres) (nominal)` = `Land Consumed_Nominal`, 
@@ -297,7 +299,7 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
            `Land Impacted (acres) (min)` = `Land Impacted_Low`,
            `Land Consumed (acres) (max)` = `Land Consumed_High`,
            `Land Impacted (acres) (max)` = `Land Impacted_High`,
-           Year = year)
+           Year = year) 
   
   return(total_uses)
 }

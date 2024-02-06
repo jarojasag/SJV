@@ -73,7 +73,7 @@ carbon_intensity_c2u <- c2u_data$`C2U CI` %>%
          `Uncertainty Range Category C2U` = `Uncertainty Range Category`)
 
 f2c_conversion <- f2c_data$`F2C Conversion` %>% 
-  select(Feedstock:`Commodity Unit`, `F2C Conversion Factor`)
+  select(Feedstock:`Commodity Unit`, `F2C Conversion Factor`, `Feedstock Energy Conversion (based on LHV)`)
 
 # Base Buildouts ----------------------------------------------------------
 
