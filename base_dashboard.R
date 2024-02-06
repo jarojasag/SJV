@@ -101,7 +101,7 @@ total_avoided_emissions <- lapply(seq_along(f2c_porfolios), function(x)
                         portfolio_names[x], ref_commodities, 
                         conversion_units, carbon_intensity_f2c,
                         effective_energy))
-  
+
 total_avoided_emissions <- total_avoided_emissions %>% 
   bind_rows() 
 
@@ -109,7 +109,7 @@ total_avoided_emissions <- total_avoided_emissions %>%
 
 total_uses <- lapply(seq_along(f2c_porfolios), function(x)
   find_uses(f2c_porfolios[[x]], portfolio_names[x],ref_commodities, 
-          water_use_coef, land_use_coef, f2c_conversion))
+            water_use_coef, land_use_coef, f2c_conversion))
 
 total_uses <- total_uses %>% 
   bind_rows() 
@@ -124,5 +124,5 @@ final_output <- total_avoided_emissions %>%
 
 # Saving Output -----------------------------------------------------------
 
-write_xlsx(list("Portfolio Analysis" = final_output),
+write_xlsx(list("Avoided Emissions" = final_output),
            path = paste0("output/Full Portfolio Analysis ", today(), ".xlsx"))
