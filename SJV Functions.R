@@ -277,15 +277,17 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
   
   # Jobs Use Calculation
   
-  jobs_use <- feedstock_use(feedstock_commodity,  "Electricity", 
-                            c("Solar", "Wind", "Li Battery", "LDES",  "Forest waste", "Agricultural waste"), 
+  jobs_use <- feedstock_use(feedstock_commodity,  ref_commodities , 
+                            c("Solar", "Wind", "Li Battery", "LDES",  "Forest waste", "Agricultural waste",
+                              "Animal Manure", "Diverted Organic Waste", "Natural Gas + CCS", "Animal Fat"), 
                             jobs_use_coef) %>% 
     arrange(Feedstock, Commodity, `Variable Subcategory`, year) %>% 
     group_by(Feedstock, Commodity, `Variable Subcategory`) %>% 
     mutate(diff = Buildout - dplyr::lag(Buildout),
            `Conversion Value` = case_when(diff > 0 ~ diff * Value * Multiplier * (1 - `Productivity`) ** (year - 2025),
-                                          is.na(diff) ~ Buildout * Value * Multiplier,  
-                                          .default = 0))  %>% 
+                                          year == 2025 ~ Buildout * Value * Multiplier,  
+                                          is.na(Buildout * Value * Multiplier) ~ NA,
+                                          .default = 0)) %>% 
     select(-diff) %>% 
     ungroup() %>% 
     mutate(`Uncertainty Range Category` = "Nominal") %>% 

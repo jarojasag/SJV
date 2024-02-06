@@ -40,8 +40,10 @@ land_use_coef <- f2c_data$`F2C Land` %>%
   filter(Commodity %in% c("Electricity", "Hydrogen"))
 
 jobs_use_coef <- f2c_data$`F2C Jobs` %>% 
-  select(Feedstock:Multiplier) %>% 
-  filter(Commodity %in% c("Electricity"))
+  select(Feedstock:Value2) %>% 
+  select(-Value) %>% 
+  rename(Value = Value2) %>% 
+  filter(Commodity %in% ref_commodities)
 
 conversion_units <- conversion_data$`Unit Conversion` %>% 
   filter(Commodity %in% ref_commodities) %>% 
