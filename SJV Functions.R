@@ -23,7 +23,6 @@ pivot_year <- function(data, val_names){
     mutate(year = as.integer(year))
   
   return(data)
-  
 }
 
 #' Calculate Feedstock Use Based on User Input
@@ -57,7 +56,6 @@ feedstock_use <- function(buildout, commodities, feedstock, f2c_data){
               relationship = "many-to-many")
   
   return(feedstock_use)
-  
 }
 
 #' Create a Line Plot for Feedstock Use
@@ -84,7 +82,6 @@ feedstock_plot <- function(feedstock_use_instance){
     geom_line() +
     ylab(str_to_title(units$`Variable Unit`)) +
     theme_bw()  
-  
 }
 
 #' Calculate Avoided Emissions
@@ -284,9 +281,9 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
     arrange(Feedstock, Commodity, `Variable Subcategory`, year) %>% 
     group_by(Feedstock, Commodity, `Variable Subcategory`) %>% 
     mutate(diff = Buildout - dplyr::lag(Buildout),
-           `Conversion Value` = case_when(diff > 0 ~ diff * Value * Multiplier * (1 - `Productivity`) ** (year - 2025),
-                                          year == 2025 ~ Buildout * Value * Multiplier,  
-                                          is.na(Buildout * Value * Multiplier) ~ NA,
+           `Conversion Value` = case_when(diff > 0 ~ diff * Value *  (1 - `Productivity`) ** (year - 2025),
+                                          year == 2025 ~ Buildout *  Value,  
+                                          is.na(Buildout * Value) ~ NA,
                                           .default = 0)) %>% 
     select(-diff) %>% 
     ungroup() %>% 
@@ -327,5 +324,4 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
            Year = year) 
   
   return(total_uses)
-
 }
