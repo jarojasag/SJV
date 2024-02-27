@@ -59,10 +59,9 @@ effective_energy <- conversion_data$Conversion %>%
 carbon_intensity_f2c <- f2c_data$`F2C CI` %>% 
   filter(Commodity %in% ref_commodities) %>% 
   select(Feedstock, Commodity, `Uncertainty Range Category`, 
-         `Energy Unit`, `Energy Value`) %>% 
+         `Energy Value`) %>% 
   distinct() %>% 
-  rename(`Carbon Intensity Unit` = `Energy Unit`,
-         `Carbon Intensity` = `Energy Value`,
+  mutate(`Carbon Intensity` = `Energy Value`,
          `Uncertainty Range Category F2C` = `Uncertainty Range Category`)
 
 adjustment_factors <- c2u_data$`C2U UO Adjustment` %>% 
@@ -76,6 +75,7 @@ carbon_intensity_c2u <- c2u_data$`C2U CI` %>%
 
 f2c_conversion <- f2c_data$`F2C Conversion` %>% 
   select(Feedstock:`Commodity Unit`, `F2C Conversion Factor`, `Feedstock Energy Conversion (based on LHV)`)
+
 
 # Base Buildouts ----------------------------------------------------------
 
@@ -124,7 +124,125 @@ final_output <- total_avoided_emissions %>%
          across(`Water Withdrawn (acre-feet) (nominal)`:`Induced Employment (# New Jobs) (nominal)`,  ~ . * Weight)) %>% 
   select(-Weight)
 
+
+# Buildout differentials --------------------------------------------------
+
+robust_effects <- final_output %>% 
+  select(Portfolio, Commodity, Year, `Energy Produced`)
+
+robust_effects <- robust_effects %>% group_by(Portfolio, Year, Commodity) %>% 
+  summarise(total_energy = sum(`Energy Produced`)) %>% 
+  group_by(Commodity) %>% 
+  group_split()
+
+robust_effects <- lapply(robust_effects, function(.x) .x %>% 
+                           filter(Year == 2045))
+
+robust_names <- lapply(robust_effects, function(.x) .x %>% 
+         select(Commodity) %>% distinct)
+robust_names <- do.call(rbind, robust_names)
+
+portfolio_names <- robust_effects[[1]][, 1]
+  
+robust_diffs <- lapply(robust_effects, function(.x) {
+  outer(.x$total_energy, .x$total_energy, FUN = function(x, y) (x - y) / x)
+})
+
+robust_diffs <- lapply(seq_along(robust_diffs), function(.x) 
+  robust_diffs[[.x]] %>% as_tibble %>% 
+    mutate(Commodity = robust_names$Commodity[.x]))
+
+robust_diffs <- bind_rows(robust_diffs) %>%
+  setNames(c(portfolio_names$Portfolio, "Commodity")) %>% 
+  mutate(Portfolio = portfolio_names$Portfolio %>% rep(4)) %>% 
+  select(Commodity, Portfolio, everything())
+
+
+# Adding Updated Info and New Requests ------------------------------------
+
+# Jobs by Industry  
+
+industry_weights <- read_excel("SJV Variable Architecture.xlsx", sheet = "Job_IndustryWeights") %>%
+  select(-Technology, - `Type of Energy`) %>% 
+  mutate(Temporary = Construction + Manufacturing,
+         Permanent = 1 - Temporary)
+
+jobs_names <- paste(colnames(industry_weights)[-c(1:2)], 
+                    rep(c("Direct Employment (# New Jobs) (nominal)", 
+                          "Direct Employment (# New Jobs) (nominal) (cumulative)"), each = dim(industry_weights)[2] - 2), 
+                    sep = " - ")
+
+
+final_output <- final_output %>% 
+  arrange(Portfolio, Feedstock, Commodity, Use, Year) %>% 
+  group_by(Feedstock, Commodity, Use) %>% 
+  mutate(across(`Direct Employment (# New Jobs) (nominal)`:`Induced Employment (# New Jobs) (nominal)`,
+                ~ cumsum(.x),
+                .names = "{.col} (cumulative)")) %>% 
+  ungroup %>%  
+  left_join(industry_weights) %>% 
+  mutate(across(Agriculture:Permanent, ~ `Direct Employment (# New Jobs) (nominal)` * .x,
+                .names = "{.col}_direct")) %>% 
+  group_by(Feedstock, Commodity, Use) %>% 
+  mutate(across(Agriculture_direct:Permanent_direct, ~ cumsum(.x),
+                .names = "{.col}_cumulative")) %>% 
+  ungroup() %>% 
+  select(-Agriculture:-Permanent)
+
+colnames(final_output)[32:49] <- jobs_names
+
+
+# Avoided Pollutants
+avoided_pollutants <- read_excel("SJV Variable Architecture.xlsx", sheet = "Emissions") %>% 
+  select(Commodity:`Energy Value`, -`Energy Unit`) %>% 
+  rename(`Variable Category Pollutants` = `Variable Category`, 
+         `Energy Value Pollutants` = `Energy Value`)
+
+final_output <- final_output %>%
+  left_join(avoided_pollutants, relationship = "many-to-many") %>% 
+  pivot_wider(names_from = `Variable Category Pollutants`,
+              values_from = `Energy Value Pollutants`) %>% 
+  mutate(`Avoided NOx Emisison (ton NOx) (nominal)` = `Adjusted Energy Used in MJ` * `NOx Emission` /  1e+06,
+         `Avoided PM2.5 Emisison (ton PM2.5) (nominal)` =  `Adjusted Energy Used in MJ` * `PM2.5 Emission` /  1e+06) %>%
+  select(-`PM2.5 Emission`:-`NA`)
+
+# Revenue
+
+commodity_prices <- read_excel("SJV Variable Architecture.xlsx", sheet = "Commodity Prices") %>% 
+  select(Feedstock:Value) %>% 
+  select(-Unit, - `Variable Category`) %>% 
+  rename(`Uncertainty Range Category Revenue` = `Uncertainty Range Category`,
+         `Value Revenue` = Value)
+  
+
+final_output <- final_output %>% 
+  left_join(commodity_prices %>% filter(Commodity == "Electricity"), 
+            by = c("Feedstock", "Commodity"),
+            relationship = "many-to-many") %>% 
+  left_join(commodity_prices %>% filter(Commodity != "Electricity") %>% 
+              select(-Feedstock), 
+            by = "Commodity",
+            relationship = "many-to-many") %>% 
+  mutate(`Uncertainty Range Category Revenue` = case_when(!is.na(`Uncertainty Range Category Revenue.x`) & is.na(`Uncertainty Range Category Revenue.y`)  ~ `Uncertainty Range Category Revenue.x`,
+                                                 is.na(`Uncertainty Range Category Revenue.x`) & !is.na(`Uncertainty Range Category Revenue.y`)  ~ `Uncertainty Range Category Revenue.y`,
+                                                 .default = NA),
+         `Value Revenue` = case_when(!is.na(`Value Revenue.x`) & is.na(`Value Revenue.y`) ~ `Value Revenue.x`, 
+                                     is.na(`Value Revenue.x`) & !is.na(`Value Revenue.y`) ~ `Value Revenue.y`, 
+                                     .default = NA)) %>%
+  select(-`Uncertainty Range Category Revenue.x`:-`Value Revenue.y`) %>% 
+  mutate(`Gross Revenue (Million Dollars)` = Buildout * `Value Revenue` / 1e+06) %>% 
+  pivot_wider(names_from = `Uncertainty Range Category Revenue`,
+              values_from = c(`Gross Revenue (Million Dollars)`, `Value Revenue`)) %>% 
+  rename(`Gross Revenue (Million Dollars) (nominal)` = `Gross Revenue (Million Dollars)_Nominal`,
+         `Gross Revenue (Million Dollars) (low)` = `Gross Revenue (Million Dollars)_Low`) %>% 
+  select(-`Value Revenue_Nominal`:-`Value Revenue_Low`)
+         
+
 # Saving Output -----------------------------------------------------------
 
 write_xlsx(list("Avoided Emissions" = final_output),
-           path = paste0("output/Full Portfolio Analysis 2024-02-05.xlsx"))
+           path = paste0("output/Full Portfolio Analysis ", today(), ".xlsx"))
+
+write_xlsx(list("Robustness base" = robust_diffs),
+           path = paste0("output/Portfolio Robustness ", today(), ".xlsx"))
+
