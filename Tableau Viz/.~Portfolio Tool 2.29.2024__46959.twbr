@@ -9659,7 +9659,9 @@
           </manual-sort>
           <filter class='categorical' column='[federated.0ssjqpl025ruvf1gwegqx0mkbet1].[none:Portfolio:nk]'>
             <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Portfolio:nk]' member='&quot;Amplify Bioenergy Buildout 2.1.2024&quot;' />
               <groupfilter function='member' level='[none:Portfolio:nk]' member='&quot;Current Projects 1.29.2024&quot;' />
+              <groupfilter function='member' level='[none:Portfolio:nk]' member='&quot;EBetancourt-TheExpectedPortfolio EDITED&quot;' />
               <groupfilter function='member' level='[none:Portfolio:nk]' member='&quot;Proportional Buildout 1.31.2024&quot;' />
             </groupfilter>
           </filter>
@@ -18441,7 +18443,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='30' />
       <simple-id uuid='{7658E1B6-231B-4502-894D-EC6B4179174E}' />
     </window>
     <window class='dashboard' maximized='true' name='Portfolio Details'>
@@ -18450,7 +18452,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='74' />
       <simple-id uuid='{62CFEC5C-6615-4E3C-9844-317B55DFA240}' />
     </window>
     <window class='dashboard' name='Land (Totals) '>
