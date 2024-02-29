@@ -18446,14 +18446,44 @@
       <active id='30' />
       <simple-id uuid='{7658E1B6-231B-4502-894D-EC6B4179174E}' />
     </window>
-    <window class='dashboard' maximized='true' name='Portfolio Details'>
+    <window class='dashboard' name='Portfolio Details'>
       <viewpoints>
         <viewpoint name='Energy by Feedstock WS'>
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='74' />
+      <active id='45' />
       <simple-id uuid='{62CFEC5C-6615-4E3C-9844-317B55DFA240}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Energy by Feedstock WS'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='293'>
+            <card param='[federated.0ssjqpl025ruvf1gwegqx0mkbet1].[none:Portfolio:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.0ssjqpl025ruvf1gwegqx0mkbet1].[none:Calculation_4182929312115757066:nk]' type='color' />
+            <card mode='compact' param='[Parameters].[Parameter 2]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{F4064D8C-B30E-42B2-82BF-EAF11EFD91E9}' />
     </window>
     <window class='dashboard' name='Land (Totals) '>
       <viewpoints>
@@ -19005,36 +19035,6 @@
         </edge>
       </cards>
       <simple-id uuid='{98F6B3F9-1D96-4A48-8840-BDCE8EA58CFE}' />
-    </window>
-    <window class='worksheet' hidden='true' name='Energy by Feedstock WS'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='293'>
-            <card param='[federated.0ssjqpl025ruvf1gwegqx0mkbet1].[none:Portfolio:nk]' type='filter' />
-            <card pane-specification-id='0' param='[federated.0ssjqpl025ruvf1gwegqx0mkbet1].[none:Calculation_4182929312115757066:nk]' type='color' />
-            <card mode='compact' param='[Parameters].[Parameter 2]' type='parameter' />
-          </strip>
-        </edge>
-      </cards>
-      <viewpoint>
-        <zoom type='entire-view' />
-      </viewpoint>
-      <simple-id uuid='{F4064D8C-B30E-42B2-82BF-EAF11EFD91E9}' />
     </window>
     <window class='worksheet' hidden='true' name='Energy by Fuel WS'>
       <cards>
