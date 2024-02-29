@@ -43,7 +43,9 @@ jobs_use_coef <- f2c_data$`F2C Jobs` %>%
   select(Feedstock:Value2) %>% 
   select(-Value) %>% 
   rename(Value = Value2) %>% 
-  filter(Commodity %in% ref_commodities)
+  filter(Commodity %in% ref_commodities) %>% 
+  mutate(Productivity = case_when(is.na(Productivity) ~ 0, 
+                                  .default = Productivity))
 
 conversion_units <- conversion_data$`Unit Conversion` %>% 
   filter(Commodity %in% ref_commodities) %>% 
@@ -140,12 +142,13 @@ robust_effects <- lapply(robust_effects, function(.x) .x %>%
 
 robust_names <- lapply(robust_effects, function(.x) .x %>% 
          select(Commodity) %>% distinct)
+
 robust_names <- do.call(rbind, robust_names)
 
 portfolio_names <- robust_effects[[1]][, 1]
   
 robust_diffs <- lapply(robust_effects, function(.x) {
-  outer(.x$total_energy, .x$total_energy, FUN = function(x, y) (x - y) / x)
+  outer(.x$total_energy, .x$total_energy, FUN = function(x, y) (y - x) / y)
 })
 
 robust_diffs <- lapply(seq_along(robust_diffs), function(.x) 
@@ -155,8 +158,38 @@ robust_diffs <- lapply(seq_along(robust_diffs), function(.x)
 robust_diffs <- bind_rows(robust_diffs) %>%
   setNames(c(portfolio_names$Portfolio, "Commodity")) %>% 
   mutate(Portfolio = portfolio_names$Portfolio %>% rep(4)) %>% 
-  select(Commodity, Portfolio, everything())
+  select(Commodity, Portfolio, everything()) %>% 
+  arrange(Portfolio, Commodity) %>%  
+  select(Commodity, everything()) %>% 
+  pivot_longer(!c(Commodity, Portfolio), 
+               names_to = "Comparison Portfolio", 
+               values_to = "Relative Difference") %>% 
+  select(Portfolio,`Comparison Portfolio`, everything()) %>% 
+  arrange(Portfolio,`Comparison Portfolio`) %>% 
+  group_by(Portfolio) %>% 
+  group_split()
 
+robust_diffs <- lapply(robust_diffs, function(x) 
+  x %>% 
+  filter(Commodity %in% c("Biomethane", "Hydrogen")) %>% 
+  bind_cols(
+  x %>% filter(!(Commodity %in% c("Biomethane", "Hydrogen"))) %>% 
+    select(-matches("Portfolio"))) %>% 
+  select(-matches("Commodity")) %>% 
+  rename(col_1 = `Relative Difference...4`, 
+         col_2 = `Relative Difference...6`) %>% 
+  mutate(row = rep(c(1, 2), length(robust_diffs))) %>% 
+  pivot_wider(names_from = `Comparison Portfolio`, 
+                values_from = c(col_1, col_2))
+  )
+  
+robust_diffs <- robust_diffs %>% bind_rows() 
+names(robust_diffs) <- gsub(x = names(robust_diffs), pattern = "col_\\d_", replacement = "")
+names(robust_diffs)[3:14] <- paste0(names(robust_diffs)[3:14], "_1")
+names(robust_diffs)[15:26] <- paste0(names(robust_diffs)[15:26], "_2")
+robust_diffs <- robust_diffs %>% select(order(colnames(robust_diffs))) %>% 
+  select(Portfolio, everything(), - row)
+names(robust_diffs) <- gsub(x = names(robust_diffs), pattern = "_\\d", replacement = "")
 
 # Adding Updated Info and New Requests ------------------------------------
 
@@ -175,15 +208,13 @@ jobs_names <- paste(colnames(industry_weights)[-c(1:2)],
 
 final_output <- final_output %>% 
   arrange(Portfolio, Feedstock, Commodity, Use, Year) %>% 
-  group_by(Feedstock, Commodity, Use) %>% 
+  group_by(Portfolio, Feedstock, Commodity, Use) %>% 
   mutate(across(`Direct Employment (# New Jobs) (nominal)`:`Induced Employment (# New Jobs) (nominal)`,
                 ~ cumsum(.x),
-                .names = "{.col} (cumulative)")) %>% 
-  ungroup %>%  
+                .names = "{.col} (cumulative)")) %>%
   left_join(industry_weights) %>% 
   mutate(across(Agriculture:Permanent, ~ `Direct Employment (# New Jobs) (nominal)` * .x,
                 .names = "{.col}_direct")) %>% 
-  group_by(Feedstock, Commodity, Use) %>% 
   mutate(across(Agriculture_direct:Permanent_direct, ~ cumsum(.x),
                 .names = "{.col}_cumulative")) %>% 
   ungroup() %>% 
@@ -244,5 +275,4 @@ write_xlsx(list("Avoided Emissions" = final_output),
            path = paste0("output/Full Portfolio Analysis ", today(), ".xlsx"))
 
 write_xlsx(list("Robustness base" = robust_diffs),
-           path = paste0("output/Portfolio Robustness ", today(), ".xlsx"))
-
+           path = paste0("output/Portfolio Robustness ", today(), "_2.xlsx"))

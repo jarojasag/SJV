@@ -290,7 +290,7 @@ find_uses <- function(feedstock_commodity, portfolio_name, ref_commodities,
     mutate(`Uncertainty Range Category` = "Nominal") %>% 
     select(all_of(selector)) 
   
-  # Pivot data for wide representatio
+  # Pivot data for wide representation
   total_uses <- bind_rows(water_use, land_use, jobs_use) %>% 
     left_join(f2c_conversion) %>% 
     mutate(`Feedstock Quantity` = Buildout / `F2C Conversion Factor`,
