@@ -130,10 +130,11 @@ final_output <- total_avoided_emissions %>%
 # Buildout differentials --------------------------------------------------
 
 robust_effects <- final_output %>% 
-  select(Portfolio, Commodity, Year, `Energy Produced`)
+  select(Portfolio, Commodity, Year, Buildout, `Energy Produced`)
 
 robust_effects <- robust_effects %>% group_by(Portfolio, Year, Commodity) %>% 
-  summarise(total_energy = sum(`Energy Produced`)) %>% 
+  summarise(total_energy = sum(`Energy Produced`),
+            total_buildout = sum(Buildout)) %>% 
   group_by(Commodity) %>% 
   group_split()
 
@@ -148,11 +149,12 @@ robust_names <- do.call(rbind, robust_names)
 portfolio_names <- robust_effects[[1]][, 1]
   
 robust_diffs <- lapply(robust_effects, function(.x) {
-  outer(.x$total_energy, .x$total_energy, FUN = function(x, y) (y - x) / y)
+  outer(.x$total_energy, .x$total_energy, FUN = function(x, y) (x - y) / y)
+  #outer(.x$total_buildout, .x$total_buildout, FUN = function(x, y) (x - y) / y)
 })
 
 robust_diffs <- lapply(seq_along(robust_diffs), function(.x) 
-  robust_diffs[[.x]] %>% as_tibble %>% 
+  robust_diffs[[.x]] %>% t() %>% as_tibble %>% 
     mutate(Commodity = robust_names$Commodity[.x]))
 
 robust_diffs <- bind_rows(robust_diffs) %>%
@@ -166,8 +168,10 @@ robust_diffs <- bind_rows(robust_diffs) %>%
                values_to = "Relative Difference") %>% 
   select(Portfolio,`Comparison Portfolio`, everything()) %>% 
   arrange(Portfolio,`Comparison Portfolio`) %>% 
+  mutate(`Relative Difference` = case_when(Portfolio == `Comparison Portfolio` ~ 0, 
+                                           .default = `Relative Difference`)) %>% 
   group_by(Portfolio) %>% 
-  group_split()
+  group_split() 
 
 robust_diffs <- lapply(robust_diffs, function(x) 
   x %>% 
@@ -275,4 +279,4 @@ write_xlsx(list("Avoided Emissions" = final_output),
            path = paste0("output/Full Portfolio Analysis ", today(), ".xlsx"))
 
 write_xlsx(list("Robustness base" = robust_diffs),
-           path = paste0("output/Portfolio Robustness ", today(), "_2.xlsx"))
+           path = paste0("output/Portfolio Robustness ", today(), ".xlsx"))
