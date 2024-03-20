@@ -78,7 +78,6 @@ carbon_intensity_c2u <- c2u_data$`C2U CI` %>%
 f2c_conversion <- f2c_data$`F2C Conversion` %>% 
   select(Feedstock:`Commodity Unit`, `F2C Conversion Factor`, `Feedstock Energy Conversion (based on LHV)`)
 
-
 # Base Buildouts ----------------------------------------------------------
 
 portfolios <- list.files("data", pattern="*.xlsx", full.names = TRUE)
@@ -271,7 +270,19 @@ final_output <- final_output %>%
   rename(`Gross Revenue (Million Dollars) (nominal)` = `Gross Revenue (Million Dollars)_Nominal`,
          `Gross Revenue (Million Dollars) (low)` = `Gross Revenue (Million Dollars)_Low`) %>% 
   select(-`Value Revenue_Nominal`:-`Value Revenue_Low`)
+
+# Living Wages
+
+wage_distribution <- read_excel("SJV Variable Architecture.xlsx", sheet = "Wage Distribution") %>% 
+  pivot_wider(names_from =`Variable Subcategory`, values_from = Value) %>% 
+  select(-`Type of Energy`:-`Variable Category`)
          
+final_output <- final_output %>% left_join(wage_distribution) %>% 
+  mutate(`Direct Employment (# New Jobs Under Living Wage) (nominal)` = 
+           `Direct Employment (# New Jobs) (nominal)` * `Share of Postings Under Living Wage`, 
+         `Direct Employment (# New Jobs Over Living Wage) (nominal)` = 
+           `Direct Employment (# New Jobs) (nominal)` * `Share of Postings Over Living Wage`) %>%
+  select(-`Share of Postings Under Living Wage`, -`Share of Postings Over Living Wage`) 
 
 # Saving Output -----------------------------------------------------------
 
